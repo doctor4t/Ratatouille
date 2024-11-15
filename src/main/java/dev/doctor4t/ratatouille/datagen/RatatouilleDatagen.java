@@ -18,5 +18,6 @@ public class RatatouilleDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(RatatouilleBlockTagGen::new);
         pack.addProvider(RatatouilleLangGen::new);
         pack.addProvider(RatatouilleBlockLootTableGen::new);
+        pack.addProvider(RatatouilleRecipeGen::new);
     }
 }

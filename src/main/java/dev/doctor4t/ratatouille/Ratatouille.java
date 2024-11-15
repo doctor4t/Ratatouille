@@ -1,5 +1,6 @@
 package dev.doctor4t.ratatouille;
 
+import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import dev.doctor4t.ratatouille.index.RatatouilleItems;
 import dev.doctor4t.ratatouille.index.RatatouilleSounds;
@@ -19,6 +20,7 @@ public class Ratatouille implements ModInitializer {
     @Override
     public void onInitialize() {
         RatatouilleBlocks.initialize();
+        RatatouilleBlockEntities.initialize();
         RatatouilleItems.initialize();
         RatatouilleSounds.initialize();
     }

@@ -16,10 +16,11 @@ import java.util.Map;
 import java.util.function.Function;
 
 public class RatatouilleBlocks {
+    protected static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
+
     public static final Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
     public static final Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
     public static final Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
-    protected static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
     protected static <T extends Block> T create(String name, T block) {
         BLOCKS.put(block, Ratatouille.id(name));
