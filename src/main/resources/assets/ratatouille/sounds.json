@@ -1,0 +1,20 @@
+{
+  "block.rat_maid_plush.honk": {
+    "sounds": [
+      "ratatouille:block/rat_maid_plush_honk"
+    ],
+    "subtitle": "subtitles.ratatouille.block.rat_maid_plush.honk"
+  },
+  "block.folly_plush.honk": {
+    "sounds": [
+      "ratatouille:block/folly_plush_honk"
+    ],
+    "subtitle": "subtitles.ratatouille.block.folly_plush.honk"
+  },
+  "block.mauve_plush.honk": {
+    "sounds": [
+      "ratatouille:block/mauve_plush_honk"
+    ],
+    "subtitle": "subtitles.ratatouille.block.mauve_plush.honk"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "ratatouille:block/folly_plush",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "ratatouille:block/folly_plush"
+    },
+    "facing=south": {
+      "model": "ratatouille:block/folly_plush",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "ratatouille:block/folly_plush",
+      "y": 270
+    }
+  }
+}
