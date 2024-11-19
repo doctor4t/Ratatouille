@@ -1,9 +1,6 @@
 package dev.doctor4t.ratatouille;
 
-import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
-import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
-import dev.doctor4t.ratatouille.index.RatatouilleItems;
-import dev.doctor4t.ratatouille.index.RatatouilleSounds;
+import dev.doctor4t.ratatouille.index.*;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -23,5 +20,6 @@ public class Ratatouille implements ModInitializer {
         RatatouilleBlockEntities.initialize();
         RatatouilleItems.initialize();
         RatatouilleSounds.initialize();
+        RatatouilleEntities.initialize();
     }
 }

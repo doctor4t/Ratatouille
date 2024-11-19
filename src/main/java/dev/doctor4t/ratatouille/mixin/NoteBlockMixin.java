@@ -18,7 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 public class NoteBlockMixin {
     @WrapOperation(method = "onSyncedBlockEvent", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/enums/Instrument;getSound()Lnet/minecraft/registry/entry/RegistryEntry;"))
     private RegistryEntry<SoundEvent> ratatouille$plushieReplaceNoteBlockSound(Instrument instance, Operation<RegistryEntry<SoundEvent>> original, BlockState state, @NotNull World world, @NotNull BlockPos pos) {
-        if (world.getBlockState(pos.down()).getBlock() instanceof PlushBlock) return RegistryEntry.of(PlushBlock.getSound(world.getBlockState(pos.down())));
+        if (world.getBlockState(pos.down()).getBlock() instanceof PlushBlock)
+            return RegistryEntry.of(PlushBlock.getSound(world.getBlockState(pos.down())));
         return original.call(instance);
     }
 }

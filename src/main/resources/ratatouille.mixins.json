@@ -3,7 +3,8 @@
   "package": "dev.doctor4t.ratatouille.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "NoteBlockMixin"
+    "NoteBlockMixin",
+    "PlayerEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

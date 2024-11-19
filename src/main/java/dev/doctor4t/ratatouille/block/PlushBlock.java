@@ -7,8 +7,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -42,6 +40,21 @@ public class PlushBlock extends BlockWithEntity implements Waterloggable {
 
     public PlushBlock(Settings settings) {
         super(settings);
+    }
+
+    public static SoundEvent getSound(BlockState state) {
+        SoundEvent ret = SoundEvents.BLOCK_WOOL_HIT;
+        if (state.getBlock() == RatatouilleBlocks.RAT_MAID_PLUSH) {
+            ret = RatatouilleSounds.BLOCK_RAT_MAID_PLUSH_HONK;
+        }
+        if (state.getBlock() == RatatouilleBlocks.FOLLY_PLUSH) {
+            ret = RatatouilleSounds.BLOCK_FOLLY_PLUSH_HONK;
+        }
+        if (state.getBlock() == RatatouilleBlocks.MAUVE_PLUSH) {
+            ret = RatatouilleSounds.BLOCK_MAUVE_PLUSH_HONK;
+        }
+
+        return ret;
     }
 
     public BlockRenderType getRenderType(BlockState state) {
@@ -129,6 +142,7 @@ public class PlushBlock extends BlockWithEntity implements Waterloggable {
     protected void appendProperties(StateManager.@NotNull Builder<Block, BlockState> builder) {
         builder.add(FACING, WATERLOGGED);
     }
+
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
@@ -139,20 +153,5 @@ public class PlushBlock extends BlockWithEntity implements Waterloggable {
     @Override
     public FluidState getFluidState(BlockState state) {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
-    }
-
-    public static SoundEvent getSound(BlockState state) {
-        SoundEvent ret = SoundEvents.BLOCK_WOOL_HIT;
-        if (state.getBlock() == RatatouilleBlocks.RAT_MAID_PLUSH) {
-            ret = RatatouilleSounds.BLOCK_RAT_MAID_PLUSH_HONK;
-        }
-        if (state.getBlock() == RatatouilleBlocks.FOLLY_PLUSH) {
-            ret = RatatouilleSounds.BLOCK_FOLLY_PLUSH_HONK;
-        }
-        if (state.getBlock() == RatatouilleBlocks.MAUVE_PLUSH) {
-            ret = RatatouilleSounds.BLOCK_MAUVE_PLUSH_HONK;
-        }
-
-        return ret;
     }
 }

@@ -23,11 +23,19 @@
 		],
 		"fabric-datagen": [
 			"dev.doctor4t.ratatouille.datagen.RatatouilleDatagen"
+		],
+		"cardinal-components-entity": [
+			"dev.doctor4t.ratatouille.components.RatatouilleComponents"
 		]
 	},
 	"mixins": [
 		"ratatouille.mixins.json"
 	],
+	"custom": {
+		"cardinal-components": [
+			"ratatouille:recoverypos"
+		]
+	},
 	"depends": {
 		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.20.1",

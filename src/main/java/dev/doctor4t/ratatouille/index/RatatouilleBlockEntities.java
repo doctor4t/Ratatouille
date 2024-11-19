@@ -16,17 +16,19 @@ public class RatatouilleBlockEntities {
 
     protected static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
 
-    public static final BlockEntityType<PlushBlockEntity> PLUSH = create("plush", FabricBlockEntityTypeBuilder
-            .create(PlushBlockEntity::new)
-            .addBlocks(RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
-            .build());
-
     protected static <T extends BlockEntity> BlockEntityType<T> create(String name, BlockEntityType<T> blockEntityType) {
         BLOCK_ENTITY_TYPES.put(blockEntityType, Ratatouille.id(name));
         return blockEntityType;
     }
 
+    public static final BlockEntityType<PlushBlockEntity> PLUSH = create("plush", FabricBlockEntityTypeBuilder
+            .create(PlushBlockEntity::new)
+            .addBlocks(RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
+            .build());
+
     public static void initialize() {
         BLOCK_ENTITY_TYPES.forEach((blockEntityType, id) -> Registry.register(Registries.BLOCK_ENTITY_TYPE, id, blockEntityType));
     }
+
+
 }

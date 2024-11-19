@@ -45,9 +45,17 @@ dependencies {
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
 	include "maven.modrinth:midnightlib:${project.midnightlib_version}"
 
-	// Fabric
+	// CCA
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
+	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
+
+	// EMI
 	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
 	modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+
+
 }
 
 processResources {
@@ -68,8 +76,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
