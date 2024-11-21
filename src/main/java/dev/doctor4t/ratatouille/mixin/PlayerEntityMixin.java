@@ -1,13 +1,20 @@
 package dev.doctor4t.ratatouille.mixin;
 
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.doctor4t.ratatouille.components.RatatouilleComponents;
 import dev.doctor4t.ratatouille.components.RecoveryPosComponent;
 import dev.doctor4t.ratatouille.entity.PlayerHeadEntity;
+import dev.doctor4t.ratatouille.util.RatatouilleUtils;
+import dev.upcraft.datasync.api.util.Entitlements;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.scoreboard.Team;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.GlobalPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -19,6 +26,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mixin(PlayerEntity.class)
@@ -79,4 +87,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         RecoveryPosComponent pos = RatatouilleComponents.RECOVERY_POS_COMPONENT.get(this);
         pos.getDeathPos().ifPresent(deathPos -> cir.setReturnValue(Optional.of(GlobalPos.create(this.getWorld().getRegistryKey(), deathPos))));
     }
+
+    @ModifyReturnValue(method = "getDisplayName", at = @At("RETURN"))
+    public Text ratatouille$styliseSupporterNames(Text original) {
+        return RatatouilleUtils.getSupporterStylisedName(this.getUuid(), original);
+    }
+
 }

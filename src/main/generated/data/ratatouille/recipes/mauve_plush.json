@@ -21,7 +21,8 @@
     "RBR"
   ],
   "result": {
-    "item": "ratatouille:mauve_plush"
+    "item": "ratatouille:mauve_plush",
+    "count": 3
   },
   "show_notification": true
 }

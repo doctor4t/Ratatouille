@@ -22,6 +22,9 @@ repositories {
 		name = 'Ladysnake Mods'
 		url = 'https://maven.ladysnake.org/releases'
 	}
+
+	// Datasynch
+	maven { url = "https://maven.uuid.gg/releases" }
 }
 
 fabricApi {
@@ -51,11 +54,13 @@ dependencies {
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 
+	// Datasync
+	modImplementation "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.4.2"
+	include "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.4.2"
+
 	// EMI
 	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
 	modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
-
-
 }
 
 processResources {

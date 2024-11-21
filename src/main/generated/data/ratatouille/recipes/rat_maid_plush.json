@@ -24,7 +24,8 @@
     "BRB"
   ],
   "result": {
-    "item": "ratatouille:rat_maid_plush"
+    "item": "ratatouille:rat_maid_plush",
+    "count": 3
   },
   "show_notification": true
 }
