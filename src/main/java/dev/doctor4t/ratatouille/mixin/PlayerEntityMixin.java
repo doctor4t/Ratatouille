@@ -5,16 +5,12 @@ import dev.doctor4t.ratatouille.components.RatatouilleComponents;
 import dev.doctor4t.ratatouille.components.RecoveryPosComponent;
 import dev.doctor4t.ratatouille.entity.PlayerHeadEntity;
 import dev.doctor4t.ratatouille.util.RatatouilleUtils;
-import dev.upcraft.datasync.api.util.Entitlements;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.scoreboard.Team;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.GlobalPos;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -26,7 +22,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.List;
 import java.util.Optional;
 
 @Mixin(PlayerEntity.class)
