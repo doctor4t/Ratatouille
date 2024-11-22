@@ -10,7 +10,8 @@
     "defaultRequire": 1
   },
   "client": [
-    "BlockRenderManagerAccessor",
+    "client.BlockRenderManagerAccessor",
+    "client.PlayerEntityRendererMixin",
     "client.PlayerListEntryMixin"
   ]
 }

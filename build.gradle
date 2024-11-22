@@ -55,8 +55,8 @@ dependencies {
 	include "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 
 	// Datasync
-	modImplementation "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.4.2"
-	include "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.4.2"
+	modImplementation "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.6.1"
+	include "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.6.1"
 
 	// EMI
 	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"

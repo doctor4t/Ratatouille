@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.client.render;
 
 import dev.doctor4t.ratatouille.block.PlushBlockEntity;
-import dev.doctor4t.ratatouille.mixin.BlockRenderManagerAccessor;
+import dev.doctor4t.ratatouille.mixin.client.BlockRenderManagerAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;

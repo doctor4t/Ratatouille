@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.doctor4t.ratatouille.components.RatatouilleComponents;
 import dev.doctor4t.ratatouille.components.RecoveryPosComponent;
 import dev.doctor4t.ratatouille.entity.PlayerHeadEntity;
-import dev.doctor4t.ratatouille.util.RatatouilleUtils;
+import dev.doctor4t.ratatouille.util.SupporterUtils;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -85,7 +85,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @ModifyReturnValue(method = "getDisplayName", at = @At("RETURN"))
     public Text ratatouille$styliseSupporterNames(Text original) {
-        return RatatouilleUtils.getSupporterStylisedName(this.getUuid(), original);
+        return SupporterUtils.getSupporterStylisedName(this.getUuid(), original);
     }
 
 }

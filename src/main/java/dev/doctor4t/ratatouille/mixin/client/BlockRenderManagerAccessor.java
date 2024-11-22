@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.mixin;
+package dev.doctor4t.ratatouille.mixin.client;
 
 import net.minecraft.client.render.block.BlockModelRenderer;
 import net.minecraft.client.render.block.BlockRenderManager;
