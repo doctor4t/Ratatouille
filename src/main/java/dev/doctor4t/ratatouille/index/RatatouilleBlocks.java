@@ -4,6 +4,7 @@ import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.block.PlushBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
@@ -19,9 +20,9 @@ public class RatatouilleBlocks {
     protected static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
     // Plush
-    public static final Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
-    public static final Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
-    public static final Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(FabricBlockSettings.copyOf(Blocks.MAGENTA_WOOL).nonOpaque()));
+    public static final Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
+    public static final Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
+    public static final Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
 
     protected static <T extends Block> T create(String name, T block) {
         BLOCKS.put(block, Ratatouille.id(name));
