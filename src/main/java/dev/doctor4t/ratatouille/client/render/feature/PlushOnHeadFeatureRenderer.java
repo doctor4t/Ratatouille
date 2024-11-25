@@ -42,12 +42,15 @@ public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends Entity
                 try {
                     Plush plush = Plush.fromName(optional.get().plushName());
 
+                    matrices.push();
+
                     float scale = 0.625F;
                     matrices.translate(0.0F, -0.25F, 0.0F);
                     matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
                     matrices.scale(scale, -scale, -scale);
 
                     this.heldItemRenderer.renderItem(livingEntity, plush.itemStack, ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
+                    matrices.pop();
                 } catch (IllegalArgumentException ignored) {
 
                 }
