@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.client.render;
+package dev.doctor4t.ratatouille.client.render.entity;
 
 import dev.doctor4t.ratatouille.block.PlushBlockEntity;
 import dev.doctor4t.ratatouille.mixin.client.BlockRenderManagerAccessor;

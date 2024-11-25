@@ -1,10 +1,19 @@
 plugins {
 	id 'fabric-loom' version '1.8-SNAPSHOT'
-	id 'maven-publish'
+	id "io.github.ladysnake.chenille" version "0.14.0"
 }
 
 version = project.mod_version
 group = project.maven_group
+
+chenille {
+	configurePublishing {
+		withLadysnakeMaven()
+		withCurseforgeRelease()
+		withGithubRelease()
+		withModrinthRelease()
+	}
+}
 
 base {
 	archivesName = project.archives_base_name
@@ -23,8 +32,12 @@ repositories {
 		url = 'https://maven.ladysnake.org/releases'
 	}
 
-	// Datasynch
+	// Datasync
 	maven { url = "https://maven.uuid.gg/releases" }
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/ratatouille.accesswidener")
 }
 
 fabricApi {
@@ -43,6 +56,10 @@ dependencies {
 	// Mod Menu
 	modCompileOnly "com.terraformersmc:modmenu:${mod_menu_version}"
 	modRuntimeOnly "com.terraformersmc:modmenu:${mod_menu_version}"
+
+	// Satin API
+	modImplementation "io.github.ladysnake:satin:${project.satin_version}"
+	include "io.github.ladysnake:satin:${project.satin_version}"
 
 	// midnightlib
 	modImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
@@ -88,23 +105,5 @@ java {
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.base.archivesName.get()}"}
-	}
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
 	}
 }

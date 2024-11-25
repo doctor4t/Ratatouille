@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.client.render;
+package dev.doctor4t.ratatouille.client.render.entity;
 
 import com.mojang.authlib.GameProfile;
 import dev.doctor4t.ratatouille.entity.PlayerHeadEntity;

@@ -1,19 +1,17 @@
 package dev.doctor4t.ratatouille.client;
 
 import dev.doctor4t.ratatouille.Ratatouille;
-import dev.doctor4t.ratatouille.client.render.PlayerHeadEntityRenderer;
-import dev.doctor4t.ratatouille.client.render.PlushBlockEntityRenderer;
+import dev.doctor4t.ratatouille.client.render.entity.PlayerHeadEntityRenderer;
+import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
+import dev.doctor4t.ratatouille.client.util.handlers.RenderHandler;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import dev.doctor4t.ratatouille.index.RatatouilleEntities;
 import dev.doctor4t.ratatouille.util.SupporterPlushOnHeadData;
-import dev.upcraft.datasync.api.DataSyncAPI;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
-import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.util.TypedActionResult;
@@ -21,6 +19,9 @@ import net.minecraft.util.TypedActionResult;
 public class RatatouilleClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        // Initialize the render handler
+        RenderHandler.initialize();
+
         // Block special renders
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH

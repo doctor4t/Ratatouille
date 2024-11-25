@@ -4,7 +4,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "NoteBlockMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "client.render.ShaderImportProcessorMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -12,6 +13,10 @@
   "client": [
     "client.BlockRenderManagerAccessor",
     "client.PlayerEntityRendererMixin",
-    "client.PlayerListEntryMixin"
+    "client.PlayerListEntryMixin",
+    "client.render.EffectProgramMixin",
+    "client.render.GameRendererMixin",
+    "client.render.ShaderMixin",
+    "client.render.WorldRendererMixin"
   ]
 }

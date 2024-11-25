@@ -1,10 +1,10 @@
 package dev.doctor4t.ratatouille.client.render.feature;
 
+import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import dev.doctor4t.ratatouille.util.SupporterPlushOnHeadData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
@@ -20,8 +20,6 @@ import net.minecraft.util.math.RotationAxis;
 import net.minecraft.entity.player.PlayerEntity;
 
 import java.util.Optional;
-
-import static dev.doctor4t.ratatouille.Ratatouille.PLUSH_ON_HEAD_DATA;
 
 @Environment(EnvType.CLIENT)
 public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends EntityModel<T> & ModelWithHead> extends FeatureRenderer<T, M> {
@@ -39,7 +37,7 @@ public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends Entity
             this.getContextModel().getHead().rotate(matrices);
 
             // get the data for the player
-            Optional<SupporterPlushOnHeadData> optional = player.datasync$get(PLUSH_ON_HEAD_DATA);
+            Optional<SupporterPlushOnHeadData> optional = player.datasync$get(Ratatouille.PLUSH_ON_HEAD_DATA);
             if (optional.isPresent()) {
                 try {
                     Plush plush = Plush.fromName(optional.get().plushName());

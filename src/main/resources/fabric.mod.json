@@ -31,6 +31,7 @@
 	"mixins": [
 		"ratatouille.mixins.json"
 	],
+	"accessWidener" : "ratatouille.accesswidener",
 	"custom": {
 		"cardinal-components": [
 			"ratatouille:recoverypos"
