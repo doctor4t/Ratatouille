@@ -9,7 +9,6 @@ group = project.maven_group
 chenille {
 	configurePublishing {
 		withLadysnakeMaven()
-		withCurseforgeRelease()
 		withGithubRelease()
 		withModrinthRelease()
 	}
