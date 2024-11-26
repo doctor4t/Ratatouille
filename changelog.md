@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.0.3 - 1.20.1
+------------------------------------------------------
+- Fixed a desync between equipped cosmetics and indicated cosmetics when opening the plush cosmetics screen
+
+------------------------------------------------------
 Ratatouille 1.0.2 - 1.20.1
 ------------------------------------------------------
 - Added a cosmetics configuration screen util

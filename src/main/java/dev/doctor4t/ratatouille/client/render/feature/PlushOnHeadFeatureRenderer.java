@@ -28,17 +28,19 @@ public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends Entity
             MatrixStack matrices, VertexConsumerProvider vertexConsumerProvider, int i, T livingEntity, float f, float g, float h, float j, float k, float l
     ) {
         if (livingEntity instanceof PlayerEntity player) {
-            // get the data for the player
-            matrices.push();
-            this.getContextModel().getHead().rotate(matrices);
-            matrices.translate(0.0F, -0.25F, 0.0F);
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
-            float scale = 0.625F;
-            matrices.scale(scale, -scale, -scale);
-
             PlushOnHeadCosmetics.Plush plush = PlushOnHeadCosmetics.getPlush(player.getUuid());
-            this.heldItemRenderer.renderItem(livingEntity, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
-            matrices.pop();
+
+            if (plush != PlushOnHeadCosmetics.Plush.NONE) {
+                matrices.push();
+                this.getContextModel().getHead().rotate(matrices);
+                matrices.translate(0.0F, -0.25F, 0.0F);
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
+                float scale = 0.625F;
+                matrices.scale(scale, -scale, -scale);
+
+                this.heldItemRenderer.renderItem(livingEntity, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
+                matrices.pop();
+            }
         }
     }
 }
