@@ -5,9 +5,12 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
+import net.minecraft.client.gui.tooltip.Tooltip;
 import net.minecraft.client.gui.widget.PressableWidget;
+import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.client.gui.screen.ingame.InventoryScreen.drawEntity;
 
@@ -16,12 +19,14 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
     private final PlayerEntity player;
     protected int x;
     protected int y;
+    boolean locked;
 
-    public CosmeticsScreen(Text title, T data) {
+    public CosmeticsScreen(Text title, T data, boolean locked) {
         super(title);
         MinecraftClient client = MinecraftClient.getInstance();
         this.player = client.player;
         this.data = data;
+        this.locked = locked;
     }
 
     public T getData() {
@@ -35,8 +40,8 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
 
         // cancel and confirm
         this.addDrawableChild(new ExitButtonWidget(this.x + 104, y + 109, Text.empty(), CosmeticsScreenUVs.CANCEL, CosmeticsScreenUVs.CANCEL_HOVER, () -> {
-        }));
-        this.addDrawableChild(new ExitButtonWidget(this.x + 128, y + 109, Text.empty(), CosmeticsScreenUVs.CONFIRM, CosmeticsScreenUVs.CONFIRM_HOVER, () -> this.getData().uploadToServer()));
+        }, false));
+        this.addDrawableChild(new ExitButtonWidget(this.x + 128, y + 109, Text.literal("TEST"), this.locked ? CosmeticsScreenUVs.LOCKED : CosmeticsScreenUVs.CONFIRM, this.locked ? CosmeticsScreenUVs.LOCKED : CosmeticsScreenUVs.CONFIRM_HOVER, () -> this.getData().uploadToServer(), this.locked));
     }
 
     @Override
@@ -54,12 +59,17 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
         Runnable runnable;
         private final CosmeticsScreenUVs texture;
         private final CosmeticsScreenUVs hoverTexture;
+        private final boolean locked;
 
-        ExitButtonWidget(int x, int y, Text text, CosmeticsScreenUVs texture, CosmeticsScreenUVs hoverTexture, Runnable runnable) {
+        ExitButtonWidget(int x, int y, Text text, CosmeticsScreenUVs texture, CosmeticsScreenUVs hoverTexture, Runnable runnable, boolean locked) {
             super(x, y, CosmeticsScreenUVs.CANCEL.getWidth(), CosmeticsScreenUVs.CANCEL.getHeight(), text);
             this.runnable = runnable;
             this.texture = texture;
             this.hoverTexture = hoverTexture;
+            this.locked = locked;
+            if (this.locked) {
+                this.setTooltip(Tooltip.of(Text.translatable("tooltip.supporter_only")));
+            }
         }
 
         @Override
@@ -73,11 +83,18 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
 
         @Override
         public void onPress() {
-            runnable.run();
-            Screen currentScreen = MinecraftClient.getInstance().currentScreen;
-            if (currentScreen != null) {
-                currentScreen.close();
+            if (!this.locked) {
+                runnable.run();
+                Screen currentScreen = MinecraftClient.getInstance().currentScreen;
+                if (currentScreen != null) {
+                    currentScreen.close();
+                }
             }
+        }
+
+        @Override
+        public void playDownSound(SoundManager soundManager) {
+            if (!this.locked) super.playDownSound(soundManager);
         }
 
         @Override

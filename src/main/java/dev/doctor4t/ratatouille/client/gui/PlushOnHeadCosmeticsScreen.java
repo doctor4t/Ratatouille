@@ -10,7 +10,7 @@ public class PlushOnHeadCosmeticsScreen extends CosmeticsScreen<PlushOnHeadCosme
     public static final String TITLE = "options.plush_on_head_cosmetics";
 
     public PlushOnHeadCosmeticsScreen() {
-        super(Text.translatable(TITLE), new PlushOnHeadCosmeticsLocalData());
+        super(Text.translatable(TITLE), new PlushOnHeadCosmeticsLocalData(), true);
     }
 
     @Override

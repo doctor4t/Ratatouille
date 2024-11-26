@@ -3,5 +3,6 @@
   "block.ratatouille.mauve_plush": "Mauve Plush",
   "block.ratatouille.rat_maid_plush": "Rat Maid Plush",
   "options.plush_on_head_cosmetics": "Plush on Head Cosmetics",
-  "options.plush_on_head_cosmetics.plush": "Plush"
+  "options.plush_on_head_cosmetics.plush": "Plush",
+  "tooltip.supporter_only": "Cosmetics are reserved to Ko-Fi and YouTube members only.\nIf you want access to them (and other cool perks), consider supporting!"
 }

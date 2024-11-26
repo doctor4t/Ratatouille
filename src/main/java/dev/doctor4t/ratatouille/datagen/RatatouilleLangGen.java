@@ -17,5 +17,6 @@ public class RatatouilleLangGen extends FabricLanguageProvider {
         builder.add(RatatouilleBlocks.MAUVE_PLUSH, "Mauve Plush");
         builder.add("options.plush_on_head_cosmetics", "Plush on Head Cosmetics");
         builder.add("options.plush_on_head_cosmetics.plush", "Plush");
+        builder.add("tooltip.supporter_only", "Cosmetics are reserved to Ko-Fi and YouTube members only.\nIf you want access to them (and other cool perks), consider supporting!");
     }
 }

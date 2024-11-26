@@ -8,7 +8,8 @@ public enum CosmeticsScreenUVs {
     CANCEL(0, 135, 18, 18),
     CANCEL_HOVER(0, 153, 18, 18),
     CONFIRM(18, 135, 18, 18),
-    CONFIRM_HOVER(18, 153, 18, 18);
+    CONFIRM_HOVER(18, 153, 18, 18),
+    LOCKED(36, 135, 18, 18);
 
     public static final Identifier GUI_TEXTURE = Ratatouille.id("textures/gui/cosmetics.png");
     private final int u;
