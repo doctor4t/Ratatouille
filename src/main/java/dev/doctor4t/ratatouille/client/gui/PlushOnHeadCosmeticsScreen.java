@@ -26,8 +26,8 @@ public class PlushOnHeadCosmeticsScreen extends CosmeticsScreen<PlushOnHeadCosme
         int optionButtonHeight = 20;
         this.addDrawableChild(
                 CyclingButtonWidget.<PlushOnHeadCosmetics.Plush>builder(value -> Text.of(TextUtils.formatValueString(value.name)))
-                        .initially(this.data.getPlush())
                         .values(plushies)
+                        .initially(this.data.getPlush())
                         .build(this.x + 72, this.y + 19, optionButtonWidth, optionButtonHeight, Text.translatable(TITLE + ".plush"), (button, value) -> this.data.setPlush(value)));
     }
 }

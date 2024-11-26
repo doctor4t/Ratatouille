@@ -16,7 +16,8 @@ import java.util.UUID;
 public abstract class PlushOnHeadCosmetics {
     public static Plush getPlush(UUID uuid) {
         // return ongoing customization option if customizing
-        if (MinecraftClient.getInstance().currentScreen instanceof PlushOnHeadCosmeticsScreen plushOnHeadCosmeticsScreen) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client.currentScreen instanceof PlushOnHeadCosmeticsScreen plushOnHeadCosmeticsScreen && uuid.equals(client.player.getUuid())) {
             return plushOnHeadCosmeticsScreen.getData().getPlush();
         }
 
