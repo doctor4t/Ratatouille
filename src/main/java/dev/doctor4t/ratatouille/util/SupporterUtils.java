@@ -1,7 +1,6 @@
 package dev.doctor4t.ratatouille.util;
 
 import dev.upcraft.datasync.api.util.Entitlements;
-import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 

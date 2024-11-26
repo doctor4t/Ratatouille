@@ -2,9 +2,9 @@ package dev.doctor4t.ratatouille.mixin.client.render;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.datafixers.util.Pair;
-import dev.doctor4t.ratatouille.client.util.handlers.PostProcessHandler;
-import dev.doctor4t.ratatouille.client.util.handlers.RenderHandler;
-import dev.doctor4t.ratatouille.client.util.setup.RatatouilleShaders;
+import dev.doctor4t.ratatouille.client.lib.render.handlers.PostProcessHandler;
+import dev.doctor4t.ratatouille.client.lib.render.handlers.RenderHandler;
+import dev.doctor4t.ratatouille.client.lib.render.setup.RatatouilleShaders;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.ShaderProgram;
 import net.minecraft.client.render.GameRenderer;

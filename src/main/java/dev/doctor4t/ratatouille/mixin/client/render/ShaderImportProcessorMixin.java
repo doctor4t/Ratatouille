@@ -16,7 +16,7 @@
 
 package dev.doctor4t.ratatouille.mixin.client.render;
 
-import dev.doctor4t.ratatouille.client.util.systems.rendering.ExtendedShader;
+import dev.doctor4t.ratatouille.client.lib.render.systems.rendering.ExtendedShader;
 import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -28,6 +28,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 /*
     Original mixin based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
  */
+
 /**
  * Lets modded shaders {@code #moj_import} shaders from any namespace with the
  * {@code <>} syntax.

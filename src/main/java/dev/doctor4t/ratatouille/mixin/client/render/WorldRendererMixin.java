@@ -1,6 +1,6 @@
 package dev.doctor4t.ratatouille.mixin.client.render;
 
-import dev.doctor4t.ratatouille.client.util.handlers.PostProcessHandler;
+import dev.doctor4t.ratatouille.client.lib.render.handlers.PostProcessHandler;
 import net.minecraft.client.render.WorldRenderer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

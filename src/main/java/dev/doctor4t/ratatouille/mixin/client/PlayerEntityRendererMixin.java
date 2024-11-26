@@ -22,6 +22,6 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void ratatouille$registerPlushOnHeadFeatureRenderer(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo callbackInfo) {
-        addFeature(new PlushOnHeadFeatureRenderer<>(this, ctx.getModelLoader(), ctx.getHeldItemRenderer()));
+        addFeature(new PlushOnHeadFeatureRenderer<>(this, ctx.getHeldItemRenderer()));
     }
 }

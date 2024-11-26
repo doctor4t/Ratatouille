@@ -15,5 +15,7 @@ public class RatatouilleLangGen extends FabricLanguageProvider {
         builder.add(RatatouilleBlocks.RAT_MAID_PLUSH, "Rat Maid Plush");
         builder.add(RatatouilleBlocks.FOLLY_PLUSH, "Folly Plush");
         builder.add(RatatouilleBlocks.MAUVE_PLUSH, "Mauve Plush");
+        builder.add("options.plush_on_head_cosmetics", "Plush on Head Cosmetics");
+        builder.add("options.plush_on_head_cosmetics.plush", "Plush on Head Cosmetics");
     }
 }

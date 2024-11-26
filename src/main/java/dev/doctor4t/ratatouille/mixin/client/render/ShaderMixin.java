@@ -16,7 +16,7 @@
 
 package dev.doctor4t.ratatouille.mixin.client.render;
 
-import dev.doctor4t.ratatouille.client.util.systems.rendering.ExtendedShader;
+import dev.doctor4t.ratatouille.client.lib.render.systems.rendering.ExtendedShader;
 import net.minecraft.client.gl.ShaderProgram;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

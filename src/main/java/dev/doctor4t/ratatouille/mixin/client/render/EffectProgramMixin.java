@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.mixin.client.render;
 
 
-import dev.doctor4t.ratatouille.client.util.systems.postprocess.RatatouilleGlslPreprocessor;
+import dev.doctor4t.ratatouille.client.lib.render.systems.postprocess.RatatouilleGlslPreprocessor;
 import net.minecraft.client.gl.EffectShaderStage;
 import net.minecraft.client.gl.GlImportProcessor;
 import org.spongepowered.asm.mixin.Mixin;
