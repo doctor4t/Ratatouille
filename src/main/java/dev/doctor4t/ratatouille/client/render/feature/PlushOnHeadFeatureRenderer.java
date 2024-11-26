@@ -43,7 +43,8 @@ public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends Entity
                     float scale = 0.625F;
                     matrices.scale(scale, -scale, -scale);
 
-                    this.heldItemRenderer.renderItem(livingEntity, PlushOnHeadCosmetics.getPlush(player.getUuid()).item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
+                    PlushOnHeadCosmetics.Plush plush = PlushOnHeadCosmetics.getPlush(player.getUuid());
+                    this.heldItemRenderer.renderItem(livingEntity, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
                     matrices.pop();
                 } catch (IllegalArgumentException ignored) {
 
