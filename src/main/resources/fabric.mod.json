@@ -3,13 +3,13 @@
 	"id": "ratatouille",
 	"version": "${version}",
 	"name": "ratatouille",
-	"description": "",
+	"description": "Library for doctor4t's mods and supporter cosmetics",
 	"authors": [
 		"doctor4t"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/ratatouille",
+		"sources": "https://github.com/doctor4t/Ratatouille"
 	},
 	"license": "ARR",
 	"icon": "assets/ratatouille/icon.png",
@@ -32,11 +32,6 @@
 		"ratatouille.mixins.json"
 	],
 	"accessWidener" : "ratatouille.accesswidener",
-	"custom": {
-		"cardinal-components": [
-			"ratatouille:recoverypos"
-		]
-	},
 	"depends": {
 		"fabricloader": ">=0.16.9",
 		"minecraft": "~1.20.1",
