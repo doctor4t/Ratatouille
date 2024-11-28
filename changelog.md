@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.0.5 - 1.20.1
+------------------------------------------------------
+- Removed Cardinal Components, Satin API and Midnightlib from dependencies
+
+------------------------------------------------------
 Ratatouille 1.0.4 - 1.20.1
 ------------------------------------------------------
 - Replaced supporter titles in chat and player list with a rat icon

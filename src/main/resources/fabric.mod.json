@@ -2,7 +2,7 @@
 	"schemaVersion": 1,
 	"id": "ratatouille",
 	"version": "${version}",
-	"name": "ratatouille",
+	"name": "Ratatouille",
 	"description": "Library for doctor4t's mods and supporter cosmetics",
 	"authors": [
 		"doctor4t"
@@ -23,9 +23,6 @@
 		],
 		"fabric-datagen": [
 			"dev.doctor4t.ratatouille.datagen.RatatouilleDatagen"
-		],
-		"cardinal-components-entity": [
-			"dev.doctor4t.ratatouille.components.RatatouilleComponents"
 		]
 	},
 	"mixins": [

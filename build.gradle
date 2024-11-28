@@ -53,10 +53,6 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Libraries
-	modIncludeImplementation "io.github.ladysnake:satin:${project.satin_version}"
-	modIncludeImplementation "maven.modrinth:midnightlib:${project.midnightlib_version}"
-	modIncludeImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${cca_version}"
-	modIncludeImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${cca_version}"
 	modIncludeImplementation "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.6.1"
 
 	// Runtime mods
