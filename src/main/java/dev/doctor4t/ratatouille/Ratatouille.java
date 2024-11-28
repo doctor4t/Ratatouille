@@ -1,12 +1,14 @@
 package dev.doctor4t.ratatouille;
 
-import dev.doctor4t.ratatouille.index.*;
+import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
+import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
+import dev.doctor4t.ratatouille.index.RatatouilleItems;
+import dev.doctor4t.ratatouille.index.RatatouilleSounds;
 import dev.doctor4t.ratatouille.util.PlushOnHeadSupporterData;
 import dev.upcraft.datasync.api.DataSyncAPI;
 import dev.upcraft.datasync.api.SyncToken;
 import dev.upcraft.datasync.api.util.Entitlements;
 import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +31,6 @@ public class Ratatouille implements ModInitializer {
         RatatouilleBlockEntities.initialize();
         RatatouilleItems.initialize();
         RatatouilleSounds.initialize();
-        RatatouilleEntities.initialize();
     }
 
     public static boolean isSupporter(UUID uuid) {

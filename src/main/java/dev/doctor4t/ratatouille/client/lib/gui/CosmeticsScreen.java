@@ -10,7 +10,6 @@ import net.minecraft.client.gui.widget.PressableWidget;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
-import org.jetbrains.annotations.Nullable;
 
 import static net.minecraft.client.gui.screen.ingame.InventoryScreen.drawEntity;
 

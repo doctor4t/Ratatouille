@@ -2,14 +2,11 @@ package dev.doctor4t.ratatouille.client;
 
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
 import dev.doctor4t.ratatouille.client.lib.render.handlers.RenderHandler;
-import dev.doctor4t.ratatouille.client.render.entity.PlayerHeadEntityRenderer;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
-import dev.doctor4t.ratatouille.index.RatatouilleEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.MinecraftClient;
@@ -34,10 +31,7 @@ public class RatatouilleClient implements ClientModInitializer {
         // Block entity renderers
         BlockEntityRendererFactories.register(RatatouilleBlockEntities.PLUSH, PlushBlockEntityRenderer::new);
 
-        // Entity renderers
-        EntityRendererRegistry.register(RatatouilleEntities.PLAYER_HEAD, PlayerHeadEntityRenderer::new);
-
-        // open the plush on head supporter cosmetics settings
+        // Open the plush on head supporter cosmetics settings
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         UseItemCallback.EVENT.register((player, world, hand) -> {
             ItemStack stack = player.getStackInHand(hand);
@@ -48,7 +42,7 @@ public class RatatouilleClient implements ClientModInitializer {
             return TypedActionResult.pass(stack);
         });
 
-        // open cosmetics screen on render thread
+        // Open cosmetics screen on render thread
         WorldRenderEvents.LAST.register(context -> {
             if (openCosmeticsScreen) {
                 minecraftClient.setScreen(new PlushOnHeadCosmeticsScreen());

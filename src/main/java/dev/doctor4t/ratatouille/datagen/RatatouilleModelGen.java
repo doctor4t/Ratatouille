@@ -3,10 +3,7 @@ package dev.doctor4t.ratatouille.datagen;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.block.WallMountedBlock;
-import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.data.client.*;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 
@@ -60,28 +57,5 @@ public class RatatouilleModelGen extends FabricModelProvider {
             case Y -> variant.put(VariantSettings.X, VariantSettings.Rotation.R90);
             case Z -> variant;
         };
-    }
-
-    protected BlockStateVariantMap wallMountedVariantMap(Identifier model) {
-        return BlockStateVariantMap.create(WallMountedBlock.FACING, WallMountedBlock.FACE).register((facing, face) -> {
-            if (face == WallMountLocation.WALL) {
-                return this.rotateForFace(this.model(model), facing, false);
-            }
-            return this.rotateForFace(this.rotateForFace(
-                            this.model(model), face == WallMountLocation.FLOOR ? Direction.UP : Direction.DOWN, false),
-                    facing.getOpposite(), false);
-        });
-    }
-
-    protected BlockStateVariantMap wallMountedVariantMap(BooleanProperty booleanProperty, Identifier trueModel, Identifier falseModel) {
-        return BlockStateVariantMap.create(WallMountedBlock.FACING, WallMountedBlock.FACE, booleanProperty).register((facing, face, bl) -> {
-            Identifier model = bl ? trueModel : falseModel;
-            if (face == WallMountLocation.WALL) {
-                return this.rotateForFace(this.model(model), facing, false);
-            }
-            return this.rotateForFace(this.rotateForFace(
-                            this.model(model), face == WallMountLocation.FLOOR ? Direction.UP : Direction.DOWN, false),
-                    facing.getOpposite(), false);
-        });
     }
 }
