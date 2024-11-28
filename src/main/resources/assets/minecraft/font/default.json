@@ -1,0 +1,13 @@
+{
+  "providers": [
+    {
+      "type": "bitmap",
+      "file": "ratatouille:font/supporter.png",
+      "ascent": 8,
+      "height": 8,
+      "chars": [
+        "\uE780"
+      ]
+    }
+  ]
+}

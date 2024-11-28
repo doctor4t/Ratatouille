@@ -42,9 +42,10 @@ public class SupporterUtils {
                     break;
                 }
             }
+            prefix = "\uE780";
 
             int finalColor = color;
-            return Text.literal(prefix).append(text).styled(s -> s.withColor(finalColor));
+            return text.copy().append(prefix).styled(s -> s.withColor(finalColor));
         }
 
         return text;
