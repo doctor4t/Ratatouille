@@ -1,4 +1,11 @@
 ------------------------------------------------------
+Ratatouille 1.0.4 - 1.20.1
+------------------------------------------------------
+- Replaced supporter titles in chat and player list with a rat icon
+- Removed player skulls
+  - These will be released as part of a separate bigger gameplay tweaks mod in the future
+
+------------------------------------------------------
 Ratatouille 1.0.3 - 1.20.1
 ------------------------------------------------------
 - Fixed a desync between equipped cosmetics and indicated cosmetics when opening the plush cosmetics screen
