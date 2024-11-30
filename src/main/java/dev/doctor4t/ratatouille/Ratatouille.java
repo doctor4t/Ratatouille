@@ -19,6 +19,8 @@ import java.util.UUID;
 public class Ratatouille implements ModInitializer {
     public static final String MOD_ID = "ratatouille";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final Identifier PLUSH_ON_HEAD_DATA_ID = Ratatouille.id("plush_on_head");
     public static final SyncToken<PlushOnHeadSupporterData> PLUSH_ON_HEAD_DATA = DataSyncAPI.register(PlushOnHeadSupporterData.class, Ratatouille.id("plush_on_head"), PlushOnHeadSupporterData.CODEC);
 
     public static Identifier id(String string) {
@@ -35,6 +37,6 @@ public class Ratatouille implements ModInitializer {
 
     public static boolean isSupporter(UUID uuid) {
         Optional<Entitlements> entitlements = Entitlements.token().get(uuid);
-        return entitlements.map(value -> value.keys().stream().anyMatch(identifier -> identifier.equals(PLUSH_ON_HEAD_DATA))).orElse(false);
+        return entitlements.map(value -> value.keys().stream().anyMatch(identifier -> identifier.equals(Ratatouille.PLUSH_ON_HEAD_DATA_ID))).orElse(false);
     }
 }

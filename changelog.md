@@ -1,4 +1,12 @@
 ------------------------------------------------------
+Ratatouille 1.0.6 - 1.20.1
+------------------------------------------------------
+- Removed colored names from supporters for now, leaving only a folly red rat icon appended to the name
+  - Plan is to make supporters able to choose their own custom colors in the future
+- Fixed supporter icons appearing for non-supporters
+- Fixed supporter cosmetics screen not appearing locked to non-supporters
+
+------------------------------------------------------
 Ratatouille 1.0.5 - 1.20.1
 ------------------------------------------------------
 - Removed Cardinal Components, Satin API and Midnightlib from dependencies
