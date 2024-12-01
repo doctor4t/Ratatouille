@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.0.7 - 1.20.1
+------------------------------------------------------
+- Added a subtitle for the plush honk sounds
+
+------------------------------------------------------
 Ratatouille 1.0.6 - 1.20.1
 ------------------------------------------------------
 - Removed colored names from supporters for now, leaving only a folly red rat icon appended to the name

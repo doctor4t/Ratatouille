@@ -3,18 +3,18 @@
     "sounds": [
       "ratatouille:block/rat_maid_plush_honk"
     ],
-    "subtitle": "subtitles.ratatouille.block.rat_maid_plush.honk"
+    "subtitle": "subtitles.ratatouille.block.plush_honk"
   },
   "block.folly_plush.honk": {
     "sounds": [
       "ratatouille:block/folly_plush_honk"
     ],
-    "subtitle": "subtitles.ratatouille.block.folly_plush.honk"
+    "subtitle": "subtitles.ratatouille.block.plush_honk"
   },
   "block.mauve_plush.honk": {
     "sounds": [
       "ratatouille:block/mauve_plush_honk"
     ],
-    "subtitle": "subtitles.ratatouille.block.mauve_plush.honk"
+    "subtitle": "subtitles.ratatouille.block.plush_honk"
   }
 }
