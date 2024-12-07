@@ -15,33 +15,33 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class RatatouilleBlocks {
-    protected static final Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
+public interface RatatouilleBlocks {
+    Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
     // Plush
-    public static final Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
-    public static final Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
-    public static final Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
+    Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
+    Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
+    Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
 
-    protected static <T extends Block> T create(String name, T block) {
+    static <T extends Block> T create(String name, T block) {
         BLOCKS.put(block, Ratatouille.id(name));
         return block;
     }
 
-    protected static <T extends Block> T createWithItem(String name, T block) {
+    static <T extends Block> T createWithItem(String name, T block) {
         return createWithItem(name, block, new FabricItemSettings());
     }
 
-    protected static <T extends Block> T createWithItem(String name, T block, FabricItemSettings settings) {
+    static <T extends Block> T createWithItem(String name, T block, FabricItemSettings settings) {
         return createWithItem(name, block, b -> new BlockItem(b, settings));
     }
 
-    protected static <T extends Block> T createWithItem(String name, T block, Function<T, BlockItem> itemGenerator) {
+    static <T extends Block> T createWithItem(String name, T block, Function<T, BlockItem> itemGenerator) {
         RatatouilleItems.create(name, itemGenerator.apply(block));
         return RatatouilleBlocks.create(name, block);
     }
 
-    public static void initialize() {
+    static void initialize() {
         BLOCKS.forEach((block, id) -> Registry.register(Registries.BLOCK, id, block));
     }
 

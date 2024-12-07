@@ -14,23 +14,23 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class RatatouilleItems {
-    protected static final Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
+public interface RatatouilleItems {
+    Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
 
-    protected static <T extends Item> T create(String name, T item) {
+    static <T extends Item> T create(String name, T item) {
         ITEMS.put(item, Ratatouille.id(name));
 
         return item;
     }
 
-    public static void initialize() {
+    static void initialize() {
         ITEMS.forEach((item, id) -> Registry.register(Registries.ITEM, id, item));
 
         Map<Item, Consumer<FabricItemGroupEntries>> stackAppenders = new HashMap<>();
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> addItemGroupEntries(entries, stackAppenders));
     }
 
-    private static void addItemGroupEntries(FabricItemGroupEntries entries, Map<Item, Consumer<FabricItemGroupEntries>> stackAppenders) {
+    static void addItemGroupEntries(FabricItemGroupEntries entries, Map<Item, Consumer<FabricItemGroupEntries>> stackAppenders) {
         ITEMS.keySet().forEach(item -> stackAppenders.getOrDefault(item, itemGroupEntries -> itemGroupEntries.add(item)).accept(entries));
     }
 }

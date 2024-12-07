@@ -12,21 +12,21 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class RatatouilleBlockEntities {
+public interface RatatouilleBlockEntities {
 
-    protected static final Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
+    Map<BlockEntityType<?>, Identifier> BLOCK_ENTITY_TYPES = new LinkedHashMap<>();
 
-    protected static <T extends BlockEntity> BlockEntityType<T> create(String name, BlockEntityType<T> blockEntityType) {
+    static <T extends BlockEntity> BlockEntityType<T> create(String name, BlockEntityType<T> blockEntityType) {
         BLOCK_ENTITY_TYPES.put(blockEntityType, Ratatouille.id(name));
         return blockEntityType;
     }
 
-    public static final BlockEntityType<PlushBlockEntity> PLUSH = create("plush", FabricBlockEntityTypeBuilder
+    BlockEntityType<PlushBlockEntity> PLUSH = create("plush", FabricBlockEntityTypeBuilder
             .create(PlushBlockEntity::new)
             .addBlocks(RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
             .build());
 
-    public static void initialize() {
+    static void initialize() {
         BLOCK_ENTITY_TYPES.forEach((blockEntityType, id) -> Registry.register(Registries.BLOCK_ENTITY_TYPE, id, blockEntityType));
     }
 

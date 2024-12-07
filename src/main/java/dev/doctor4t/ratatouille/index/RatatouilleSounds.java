@@ -9,21 +9,21 @@ import net.minecraft.sound.SoundEvent;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RatatouilleSounds {
+public interface RatatouilleSounds {
 
-    protected static final List<SoundEvent> SOUND_EVENTS = new LinkedList<>();
+    List<SoundEvent> SOUND_EVENTS = new LinkedList<>();
 
-    public static final SoundEvent BLOCK_RAT_MAID_PLUSH_HONK = create("block.rat_maid_plush.honk");
-    public static final SoundEvent BLOCK_FOLLY_PLUSH_HONK = create("block.folly_plush.honk");
-    public static final SoundEvent BLOCK_MAUVE_PLUSH_HONK = create("block.mauve_plush.honk");
+    SoundEvent BLOCK_RAT_MAID_PLUSH_HONK = create("block.rat_maid_plush.honk");
+    SoundEvent BLOCK_FOLLY_PLUSH_HONK = create("block.folly_plush.honk");
+    SoundEvent BLOCK_MAUVE_PLUSH_HONK = create("block.mauve_plush.honk");
 
-    protected static SoundEvent create(String name) {
+    static SoundEvent create(String name) {
         SoundEvent soundEvent = SoundEvent.of(Ratatouille.id(name));
         SOUND_EVENTS.add(soundEvent);
         return soundEvent;
     }
 
-    protected static BlockSoundGroup createBlockSoundGroup(String name, float volume, float pitch) {
+    static BlockSoundGroup createBlockSoundGroup(String name, float volume, float pitch) {
         return new BlockSoundGroup(volume, pitch,
                 create("block." + name + ".break"),
                 create("block." + name + ".step"),
@@ -32,7 +32,7 @@ public class RatatouilleSounds {
                 create("block." + name + ".fall"));
     }
 
-    protected static BlockSoundGroup copyBlockSoundGroup(BlockSoundGroup blockSoundGroup, float volume, float pitch) {
+    static BlockSoundGroup copyBlockSoundGroup(BlockSoundGroup blockSoundGroup, float volume, float pitch) {
         return new BlockSoundGroup(volume, pitch,
                 blockSoundGroup.getBreakSound(),
                 blockSoundGroup.getStepSound(),
@@ -41,7 +41,7 @@ public class RatatouilleSounds {
                 blockSoundGroup.getFallSound());
     }
 
-    public static void initialize() {
+    static void initialize() {
         SOUND_EVENTS.forEach(soundEvent -> Registry.register(Registries.SOUND_EVENT, soundEvent.getId(), soundEvent));
     }
 
