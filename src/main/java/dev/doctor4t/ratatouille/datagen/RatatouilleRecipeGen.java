@@ -17,12 +17,12 @@ public class RatatouilleRecipeGen extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
-        this.offRatMaidPlush(exporter);
-        this.offFollyPlush(exporter);
-        this.offMauvePlush(exporter);
+        this.offerRatMaidPlush(exporter);
+        this.offerFollyPlush(exporter);
+        this.offerMauvePlush(exporter);
     }
 
-    public void offRatMaidPlush(Consumer<RecipeJsonProvider> exporter) {
+    public void offerRatMaidPlush(Consumer<RecipeJsonProvider> exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, RatatouilleBlocks.RAT_MAID_PLUSH)
                 .input('G', Items.GRAY_WOOL)
                 .input('B', Items.BLACK_WOOL)
@@ -40,7 +40,7 @@ public class RatatouilleRecipeGen extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
-    public void offFollyPlush(Consumer<RecipeJsonProvider> exporter) {
+    public void offerFollyPlush(Consumer<RecipeJsonProvider> exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, RatatouilleBlocks.FOLLY_PLUSH)
                 .input('W', Items.WHITE_WOOL)
                 .input('B', Items.BLACK_WOOL)
@@ -54,7 +54,7 @@ public class RatatouilleRecipeGen extends FabricRecipeProvider {
                 .offerTo(exporter);
     }
 
-    public void offMauvePlush(Consumer<RecipeJsonProvider> exporter) {
+    public void offerMauvePlush(Consumer<RecipeJsonProvider> exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, RatatouilleBlocks.MAUVE_PLUSH)
                 .input('B', Items.BLUE_WOOL)
                 .input('P', Items.PINK_WOOL)

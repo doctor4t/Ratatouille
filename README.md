@@ -5,6 +5,7 @@
 ### Library
 - Rendering utils derived from [Lodestone](https://modrinth.com/mod/lodestonelib) (by Sammy; and Lodestar)
 - Cosmetics customisation util (made for my supporter cosmetics but can also be used out of the box for more general cosmetic mods who need simple customisation)
+- Item custom hit sound and particle utils
 
 ### Supporter Cosmetics
 - For Ko-Fi or YouTube members
