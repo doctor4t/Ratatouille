@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.8-SNAPSHOT'
+	id 'fabric-loom' version '1.9-SNAPSHOT'
 	id "io.github.ladysnake.chenille" version "0.14.0"
 }
 
@@ -22,7 +22,7 @@ repositories {
 	// Modrinth
 	maven { url "https://api.modrinth.com/maven" }
 
-	// Mod Menu, EMI
+	// Mod Menu
 	maven { url "https://maven.terraformersmc.com/releases/" }
 
 	// CCA
@@ -40,7 +40,9 @@ loom {
 }
 
 fabricApi {
-	configureDataGeneration()
+	configureDataGeneration() {
+		client = true
+	}
 }
 
 dependencies {
@@ -53,7 +55,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Libraries
-	modIncludeImplementation "dev.upcraft.datasync:datasync-minecraft-1.20.1-fabric:0.6.1"
+	modIncludeImplementation "dev.upcraft.datasync:datasync-minecraft-${project.minecraft_version}-fabric:${project.datasync_version}"
 
 	// Runtime mods
 	modLocalImplementation "com.terraformersmc:modmenu:${mod_menu_version}"
@@ -68,7 +70,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
