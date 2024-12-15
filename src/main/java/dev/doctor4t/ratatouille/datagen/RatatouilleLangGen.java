@@ -3,15 +3,18 @@ package dev.doctor4t.ratatouille.datagen;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
+import net.minecraft.registry.RegistryWrapper;
+
+import java.util.concurrent.CompletableFuture;
 
 public class RatatouilleLangGen extends FabricLanguageProvider {
 
-    protected RatatouilleLangGen(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    protected RatatouilleLangGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override
-    public void generateTranslations(TranslationBuilder builder) {
+    public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder builder) {
         builder.add(RatatouilleBlocks.RAT_MAID_PLUSH, "Rat Maid Plush");
         builder.add(RatatouilleBlocks.FOLLY_PLUSH, "Folly Plush");
         builder.add(RatatouilleBlocks.MAUVE_PLUSH, "Mauve Plush");

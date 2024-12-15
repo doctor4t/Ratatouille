@@ -2,11 +2,11 @@ package dev.doctor4t.ratatouille.index;
 
 import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.block.PlushBlock;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -29,10 +29,10 @@ public interface RatatouilleBlocks {
     }
 
     static <T extends Block> T createWithItem(String name, T block) {
-        return createWithItem(name, block, new FabricItemSettings());
+        return createWithItem(name, block, new Item.Settings());
     }
 
-    static <T extends Block> T createWithItem(String name, T block, FabricItemSettings settings) {
+    static <T extends Block> T createWithItem(String name, T block, Item.Settings settings) {
         return createWithItem(name, block, b -> new BlockItem(b, settings));
     }
 

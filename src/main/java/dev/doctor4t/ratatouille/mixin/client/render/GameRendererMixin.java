@@ -8,6 +8,7 @@ import dev.doctor4t.ratatouille.client.lib.render.setup.RatatouilleShaders;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gl.ShaderProgram;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.resource.ResourceFactory;
 import net.minecraft.util.math.Vec3d;
@@ -26,8 +27,8 @@ import java.util.function.Consumer;
  */
 @Mixin(GameRenderer.class)
 final class GameRendererMixin {
-    @Inject(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;render(Lnet/minecraft/client/util/math/MatrixStack;FJZLnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/GameRenderer;Lnet/minecraft/client/render/LightmapTextureManager;Lorg/joml/Matrix4f;)V", shift = At.Shift.AFTER))
-    private void ratatouille$renderWorldLast(float tickDelta, long limitTime, MatrixStack matrix, CallbackInfo ci) {
+    @Inject(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;render(Lnet/minecraft/client/util/ObjectAllocator;Lnet/minecraft/client/render/RenderTickCounter;ZLnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/GameRenderer;Lorg/joml/Matrix4f;Lorg/joml/Matrix4f;)V", shift = At.Shift.AFTER))
+    private void ratatouille$renderWorldLast(RenderTickCounter renderTickCounter, CallbackInfo ci, @Local MatrixStack matrix) {
         Vec3d cameraPos = MinecraftClient.getInstance().gameRenderer.getCamera().getPos();
         matrix.push();
         matrix.translate(-cameraPos.getX(), -cameraPos.getY(), -cameraPos.getZ());

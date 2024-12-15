@@ -1,9 +1,9 @@
 package dev.doctor4t.ratatouille.datagen;
 
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.*;
+import net.minecraft.client.data.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 

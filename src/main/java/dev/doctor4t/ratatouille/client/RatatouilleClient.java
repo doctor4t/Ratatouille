@@ -13,7 +13,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.ActionResult;
 
 public class RatatouilleClient implements ClientModInitializer {
     private static boolean openCosmeticsScreen;
@@ -39,7 +39,7 @@ public class RatatouilleClient implements ClientModInitializer {
                 openCosmeticsScreen = true;
             }
 
-            return TypedActionResult.pass(stack);
+            return ActionResult.PASS;
         });
 
         // Open cosmetics screen on render thread

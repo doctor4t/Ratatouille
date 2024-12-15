@@ -8,6 +8,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
@@ -38,12 +39,12 @@ public class PlushBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void writeNbt(@NotNull NbtCompound nbt) {
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
         nbt.putDouble("squash", this.squash);
     }
 
     @Override
-    public void readNbt(@NotNull NbtCompound nbt) {
+    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
         this.squash = nbt.getDouble("squash");
     }
 
@@ -53,7 +54,7 @@ public class PlushBlockEntity extends BlockEntity {
     }
 
     @Override
-    public NbtCompound toInitialChunkDataNbt() {
-        return this.createNbt();
+    public NbtCompound toInitialChunkDataNbt(RegistryWrapper.WrapperLookup registries) {
+        return createNbt(registries);
     }
 }

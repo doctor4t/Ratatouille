@@ -7,14 +7,16 @@ import net.minecraft.block.Block;
 import net.minecraft.data.family.BlockFamily;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.registry.RegistryWrapper;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class RatatouilleBlockLootTableGen extends FabricBlockLootTableProvider {
 
-    public RatatouilleBlockLootTableGen(FabricDataOutput dataOutput) {
-        super(dataOutput);
+    protected RatatouilleBlockLootTableGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+        super(dataOutput, registryLookup);
     }
 
     @Override

@@ -42,7 +42,7 @@ public interface RatatouilleSounds {
     }
 
     static void initialize() {
-        SOUND_EVENTS.forEach(soundEvent -> Registry.register(Registries.SOUND_EVENT, soundEvent.getId(), soundEvent));
+        SOUND_EVENTS.forEach(soundEvent -> Registry.register(Registries.SOUND_EVENT, soundEvent.id(), soundEvent));
     }
 
 }

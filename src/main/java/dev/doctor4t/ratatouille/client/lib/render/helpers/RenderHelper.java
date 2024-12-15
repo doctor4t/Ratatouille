@@ -31,27 +31,27 @@ public final class RenderHelper {
     }
 
     public static void vertexPos(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z) {
-        vertexConsumer.vertex(last, x, y, z).next();
+        vertexConsumer.vertex(last, x, y, z);
     }
 
     public static void vertexPosUV(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float u, float v) {
-        vertexConsumer.vertex(last, x, y, z).texture(u, v).next();
+        vertexConsumer.vertex(last, x, y, z).texture(u, v);
     }
 
     public static void vertexPosUVLight(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float u, float v, int light) {
-        vertexConsumer.vertex(last, x, y, z).texture(u, v).light(light).next();
+        vertexConsumer.vertex(last, x, y, z).texture(u, v).light(light);
     }
 
     public static void vertexPosColor(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float r, float g, float b, float a) {
-        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a).next();
+        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a);
     }
 
     public static void vertexPosColorUV(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float r, float g, float b, float a, float u, float v) {
-        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a).texture(u, v).next();
+        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a).texture(u, v);
     }
 
     public static void vertexPosColorUVLight(VertexConsumer vertexConsumer, Matrix4f last, float x, float y, float z, float r, float g, float b, float a, float u, float v, int light) {
-        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a).texture(u, v).light(light).next();
+        vertexConsumer.vertex(last, x, y, z).color(r, g, b, a).texture(u, v).light(light);
     }
 
     public static Vector3f parametricSphere(float u, float v, float r) {

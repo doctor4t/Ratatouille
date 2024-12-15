@@ -24,7 +24,7 @@ public class Ratatouille implements ModInitializer {
     public static final SyncToken<PlushOnHeadSupporterData> PLUSH_ON_HEAD_DATA = DataSyncAPI.register(PlushOnHeadSupporterData.class, Ratatouille.id("plush_on_head"), PlushOnHeadSupporterData.CODEC);
 
     public static Identifier id(String string) {
-        return new Identifier(MOD_ID, string);
+        return Identifier.of(MOD_ID, string);
     }
 
     @Override
