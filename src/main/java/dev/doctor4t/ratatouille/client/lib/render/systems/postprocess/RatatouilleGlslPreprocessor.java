@@ -17,8 +17,8 @@ public class RatatouilleGlslPreprocessor extends GlImportProcessor {
     @Nullable
     @Override
     public String loadImport(boolean inline, String name) {
-        Identifier id = new Identifier(name);
-        Identifier id1 = new Identifier(id.getNamespace(), "shaders/include/" + id.getPath() + ".glsl");
+        Identifier id = Identifier.of(name);
+        Identifier id1 = Identifier.of(id.getNamespace(), "shaders/include/" + id.getPath() + ".glsl");
 
         try {
             InputStream resource1 = MinecraftClient.getInstance().getResourceManager().getResourceOrThrow(id1).getInputStream();

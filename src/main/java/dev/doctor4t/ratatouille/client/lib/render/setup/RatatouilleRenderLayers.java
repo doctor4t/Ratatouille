@@ -6,6 +6,7 @@ import dev.doctor4t.ratatouille.client.lib.render.handlers.RenderHandler;
 import dev.doctor4t.ratatouille.client.lib.render.systems.rendering.Phases;
 import dev.doctor4t.ratatouille.client.lib.render.systems.rendering.ShaderUniformHandler;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.client.gl.ShaderProgram;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.RenderPhase;
 import net.minecraft.client.render.VertexFormat;
@@ -97,7 +98,7 @@ public class RatatouilleRenderLayers extends RenderPhase {
 
     /**
      * Queues shader uniform changes for a render layer. When we end batches in {@link RenderHandler#renderLast(net.minecraft.client.util.math.MatrixStack)}, we do so one render layer at a time.
-     * Prior to ending a batch, we run {@link ShaderUniformHandler#updateShaderData(net.minecraft.client.render.Shader)} if one is present for a given render layer.
+     * Prior to ending a batch, we run {@link ShaderUniformHandler#updateShaderData(net.minecraft.client.gl.ShaderProgram))} if one is present for a given render layer.
      */
     public static RenderLayer queueUniformChanges(RenderLayer type, ShaderUniformHandler handler) {
         RenderHandler.HANDLERS.put(type, handler);

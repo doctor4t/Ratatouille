@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +26,7 @@ import java.util.function.Consumer;
  */
 @Mixin(GameRenderer.class)
 final class GameRendererMixin {
-    @Inject(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;render(Lnet/minecraft/client/util/ObjectAllocator;Lnet/minecraft/client/render/RenderTickCounter;ZLnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/GameRenderer;Lorg/joml/Matrix4f;Lorg/joml/Matrix4f;)V", shift = At.Shift.AFTER))
+    @Inject(method = "renderWorld", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;render(Lnet/minecraft/client/render/RenderTickCounter;ZLnet/minecraft/client/render/Camera;Lnet/minecraft/client/render/GameRenderer;Lnet/minecraft/client/render/LightmapTextureManager;Lorg/joml/Matrix4f;Lorg/joml/Matrix4f;)V", shift = At.Shift.AFTER))
     private void ratatouille$renderWorldLast(RenderTickCounter renderTickCounter, CallbackInfo ci, @Local MatrixStack matrix) {
         Vec3d cameraPos = MinecraftClient.getInstance().gameRenderer.getCamera().getPos();
         matrix.push();
@@ -37,8 +36,8 @@ final class GameRendererMixin {
         matrix.pop();
     }
 
-    @Inject(method = "loadPrograms", at = @At(value = "INVOKE_ASSIGN", target = "Ljava/util/List;add(Ljava/lang/Object;)Z", ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD)
-    private void ratatouille$registerShaders(ResourceFactory factory, CallbackInfo ci, @Local(ordinal = 1) List<Pair<ShaderProgram, Consumer<ShaderProgram>>> list2) throws IOException {
+    @Inject(method = "loadPrograms", at = @At(value = "INVOKE_ASSIGN", target = "Ljava/util/List;add(Ljava/lang/Object;)Z", ordinal = 0))
+    private void ratatouille$registerShaders(ResourceFactory factory, CallbackInfo ci, @Local(ordinal = 0) List<Pair<ShaderProgram, Consumer<ShaderProgram>>> list2) throws IOException {
         RatatouilleShaders.init(factory);
         list2.addAll(RatatouilleShaders.shaderList);
     }

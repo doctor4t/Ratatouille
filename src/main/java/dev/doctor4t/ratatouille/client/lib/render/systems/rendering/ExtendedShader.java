@@ -32,7 +32,7 @@ public class ExtendedShader extends ShaderProgram {
     }
 
     public static String rewriteAsId(String input, String containedId) {
-        Identifier contained = new Identifier(containedId);
+        Identifier contained = Identifier.of(containedId);
         return contained.getNamespace() + Identifier.NAMESPACE_SEPARATOR + input.replace(containedId, contained.getPath());
     }
 

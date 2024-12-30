@@ -33,7 +33,7 @@ abstract class ShaderMixin {
     @Final
     private String name;
 
-    @ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Identifier;<init>(Ljava/lang/String;)V"), allow = 1)
+    @ModifyArg(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/Identifier;ofVanilla(Ljava/lang/String;)Lnet/minecraft/util/Identifier;"), allow = 1)
     private String modifyProgramId(String id) {
         if ((Object) this instanceof ExtendedShader) {
             return ExtendedShader.rewriteAsId(id, name);

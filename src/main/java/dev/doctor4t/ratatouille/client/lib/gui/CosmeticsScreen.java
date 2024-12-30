@@ -45,9 +45,10 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context);
+        this.renderBackground(context, mouseX, mouseY, delta);
         context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight());
         if (this.player != null) {
+            // todo this just needs to be experimentally ported visually, not hard
             drawEntity(context, this.x + 39, this.y + 123, 46, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
         }
         context.drawText(this.textRenderer, this.title, this.width / 2 - this.textRenderer.getWidth(this.title) / 2, this.y + 7, 4210752, false);
@@ -72,7 +73,7 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
         }
 
         @Override
-        public void renderButton(DrawContext context, int mouseX, int mouseY, float delta) {
+        public void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
             RenderSystem.enableBlend();
             RenderSystem.defaultBlendFunc();
             RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);

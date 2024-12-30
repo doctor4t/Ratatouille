@@ -46,7 +46,7 @@ public abstract class PostProcessor {
             }),
             Pair.of("nearPlaneDistance", u -> u.set(GameRenderer.CAMERA_DEPTH)),
             Pair.of("farPlaneDistance", u -> u.set(MC.gameRenderer.getFarPlaneDistance())),
-            Pair.of("fov", u -> u.set((float) Math.toRadians(MC.gameRenderer.getFov(MC.gameRenderer.getCamera(), MC.getTickDelta(), true)))),
+            Pair.of("fov", u -> u.set((float) Math.toRadians(MC.gameRenderer.getFov(MC.gameRenderer.getCamera(), MC.getRenderTickCounter().getTickDelta(false), true)))),
             Pair.of("aspectRatio", u -> u.set((float) MC.getWindow().getWidth() / (float) MC.getWindow().getHeight()))
     );
     protected PostEffectProcessor shaderEffect;
@@ -93,7 +93,7 @@ public abstract class PostProcessor {
 
         try {
             Identifier file = getPostEffectProcessorId();
-            file = new Identifier(file.getNamespace(), "shaders/post/" + file.getPath() + ".json");
+            file = Identifier.of(file.getNamespace(), "shaders/post/" + file.getPath() + ".json");
             shaderEffect = new PostEffectProcessor(
                     MC.getTextureManager(),
                     MC.getResourceManager(),
@@ -137,13 +137,13 @@ public abstract class PostProcessor {
                 init();
 
             if (shaderEffect != null) {
-                time += MC.getLastFrameDuration() / 20.0;
+                time += MC.getRenderTickCounter().getLastFrameDuration() / 20.0;
 
                 applyDefaultUniforms();
 
                 beforeProcess(viewModelStack);
                 if (!isActive) return;
-                shaderEffect.render(MC.getTickDelta());
+                shaderEffect.render(MC.getRenderTickCounter().getTickDelta(false));
 
                 GlStateManager._glBindFramebuffer(GL_DRAW_FRAMEBUFFER, MC.getFramebuffer().fbo);
                 afterProcess();

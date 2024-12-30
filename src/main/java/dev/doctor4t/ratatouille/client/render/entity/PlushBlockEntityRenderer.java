@@ -33,7 +33,7 @@ public class PlushBlockEntityRenderer<T extends BlockEntity> implements BlockEnt
         matrices.translate(-0.5, 0, -0.5);
         var state = entity.getCachedState();
         var bakedModel = this.renderManager.getModel(state);
-        ((BlockRenderManagerAccessor) this.renderManager).getModelRenderer().render(matrices.peek(), vertexConsumers.getBuffer(RenderLayers.getEntityBlockLayer(state)), state, bakedModel, 0xFF, 0xFF, 0xFF, light, overlay);
+        ((BlockRenderManagerAccessor) this.renderManager).getModelRenderer().render(matrices.peek(), vertexConsumers.getBuffer(RenderLayers.getEntityBlockLayer(state, false)), state, bakedModel, 0xFF, 0xFF, 0xFF, light, overlay);
         matrices.pop();
     }
 }
