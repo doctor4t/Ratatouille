@@ -1,4 +1,10 @@
 ------------------------------------------------------
+Ratatouille 1.0.9 - 1.21.7
+------------------------------------------------------
+- Updated to Minecraft 1.21.7 thanks to HollowedWanderer!
+- Make plushies bop to the beat when placed on top of a playing jukebox
+
+------------------------------------------------------
 Ratatouille 1.0.8 - 1.20.1
 ------------------------------------------------------
 - Fixed custom hit particle and sound items not always playing their effects when crits do
