@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.client.lib.gui;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gl.RenderPipelines;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
@@ -44,14 +44,13 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
     }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context);
-        context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight());
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.renderBackground(context, mouseX, mouseY, delta);
+        context.drawTexture(RenderPipelines.GUI_TEXTURED, CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight(), 256, 256);
         if (this.player != null) {
-            drawEntity(context, this.x + 39, this.y + 123, 46, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
+            drawEntity(context, this.x + 11, this.y + 22, this.x + 66, this.y + 123, 40, 0.3625F, this.x + 20 + mouseX * 0.1F, this.y + 62 + mouseY * 0.1F, this.player);
         }
-        context.drawText(this.textRenderer, this.title, this.width / 2 - this.textRenderer.getWidth(this.title) / 2, this.y + 7, 4210752, false);
-        super.render(context, mouseX, mouseY, delta);
+        context.drawText(this.textRenderer, this.title, this.width / 2 - this.textRenderer.getWidth(this.title) / 2, this.y + 7, -12566464, false);
     }
 
     private static class ExitButtonWidget extends PressableWidget {
@@ -72,12 +71,9 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
         }
 
         @Override
-        public void renderButton(DrawContext context, int mouseX, int mouseY, float delta) {
-            RenderSystem.enableBlend();
-            RenderSystem.defaultBlendFunc();
-            RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
+        protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
             CosmeticsScreenUVs icon = this.isMouseOver(mouseX, mouseY) ? hoverTexture : texture;
-            context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.getX(), this.getY(), icon.getU(), icon.getV(), icon.getWidth(), icon.getHeight());
+            context.drawTexture(RenderPipelines.GUI_TEXTURED, CosmeticsScreenUVs.GUI_TEXTURE, this.getX(), this.getY(), icon.getU(), icon.getV(), icon.getWidth(), icon.getHeight(), 256, 256);
         }
 
         @Override

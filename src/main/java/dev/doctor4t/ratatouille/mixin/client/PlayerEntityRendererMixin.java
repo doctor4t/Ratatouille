@@ -11,27 +11,18 @@ import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.render.entity.state.PlayerEntityRenderState;
-import net.minecraft.client.render.item.ItemRenderState;
-import net.minecraft.item.ModelTransformationMode;
+import net.minecraft.item.ItemDisplayContext;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Environment(EnvType.CLIENT)
 @Mixin(PlayerEntityRenderer.class)
-public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerEntityRenderState, PlayerEntityModel> implements PlushOnHeadRenderStateAddition {
-	@Unique
-	private final ItemRenderState plushOnHeadRenderState = new ItemRenderState();
+public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerEntityRenderState, PlayerEntityModel> {
 
 	public PlayerEntityRendererMixin(EntityRendererFactory.Context ctx, PlayerEntityModel model, float shadowRadius) {
 		super(ctx, model, shadowRadius);
-	}
-
-	@Override
-	public ItemRenderState ratatouille$getPlushOnHeadRenderState() {
-		return plushOnHeadRenderState;
 	}
 
 	@Inject(method = "<init>", at = @At("TAIL"))
@@ -42,10 +33,12 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
 	@Inject(method = "updateRenderState(Lnet/minecraft/client/network/AbstractClientPlayerEntity;Lnet/minecraft/client/render/entity/state/PlayerEntityRenderState;F)V", at = @At("TAIL"))
 	private void ratatouille$updatePlushOnHeadRenderState(AbstractClientPlayerEntity player, PlayerEntityRenderState state, float tickDelta, CallbackInfo ci) {
 		PlushOnHeadCosmetics.Plush plush = PlushOnHeadCosmetics.getPlush(player.getUuid());
-		if (plush == PlushOnHeadCosmetics.Plush.NONE) {
-			plushOnHeadRenderState.clear();
-		} else {
-			itemModelResolver.updateForLivingEntity(plushOnHeadRenderState, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, player);
+		if (state instanceof PlushOnHeadRenderStateAddition plushState) {
+			if (plush == PlushOnHeadCosmetics.Plush.NONE) {
+				plushState.ratatouille$getPlushOnHeadRenderState().clear();
+			} else {
+				itemModelResolver.updateForLivingEntity(plushState.ratatouille$getPlushOnHeadRenderState(), plush.item.getDefaultStack(), ItemDisplayContext.HEAD, player);
+			}
 		}
 	}
 }

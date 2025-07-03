@@ -9,6 +9,8 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 import java.util.LinkedHashMap;
@@ -19,9 +21,9 @@ public interface RatatouilleBlocks {
     Map<Block, Identifier> BLOCKS = new LinkedHashMap<>();
 
     // Plush
-    Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
-    Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
-    Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
+    Block RAT_MAID_PLUSH = createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Ratatouille.MOD_ID, "rat_maid_plush")))));
+    Block FOLLY_PLUSH = createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Ratatouille.MOD_ID, "folly_plush")))));
+    Block MAUVE_PLUSH = createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque().registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(Ratatouille.MOD_ID, "mauve_plush")))));
 
     static <T extends Block> T create(String name, T block) {
         BLOCKS.put(block, Ratatouille.id(name));
@@ -29,7 +31,7 @@ public interface RatatouilleBlocks {
     }
 
     static <T extends Block> T createWithItem(String name, T block) {
-        return createWithItem(name, block, new Item.Settings());
+        return createWithItem(name, block, new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Ratatouille.MOD_ID, name))));
     }
 
     static <T extends Block> T createWithItem(String name, T block, Item.Settings settings) {

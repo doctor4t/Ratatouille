@@ -1,16 +1,15 @@
 package dev.doctor4t.ratatouille.client;
 
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
-import dev.doctor4t.ratatouille.client.lib.render.handlers.RenderHandler;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -21,10 +20,10 @@ public class RatatouilleClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         // Initialize the render handler
-        RenderHandler.initialize();
+
 
         // Block special renders
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+        BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
                 RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH
         );
 
