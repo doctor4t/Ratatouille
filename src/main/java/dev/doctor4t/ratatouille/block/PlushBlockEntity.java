@@ -3,7 +3,10 @@ package dev.doctor4t.ratatouille.block;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.JukeboxBlockEntity;
+import net.minecraft.block.jukebox.JukeboxManager;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
@@ -23,12 +26,19 @@ public class PlushBlockEntity extends BlockEntity {
         super(RatatouilleBlockEntities.PLUSH, pos, state);
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, @NotNull PlushBlockEntity spark) {
-        if (spark.squash > 0) {
-            spark.squash /= 3f;
-            if (spark.squash < 0.01f) {
-                spark.squash = 0;
+    public static void tick(World world, BlockPos pos, BlockState state, @NotNull PlushBlockEntity plushEntity) {
+        if (plushEntity.squash > 0) {
+            plushEntity.squash /= 3f;
+            if (plushEntity.squash < 0.01f) {
+                plushEntity.squash = 0;
                 if (world != null) world.updateListeners(pos, state, state, Block.NOTIFY_LISTENERS);
+            }
+        }
+
+        if (world.getBlockEntity(pos.down()) instanceof JukeboxBlockEntity jukeboxBlockEntity) {
+            JukeboxManager manager = jukeboxBlockEntity.getManager();
+            if (manager.isPlaying() && manager.getTicksSinceSongStarted() % 7 == 0) {
+                plushEntity.squish(1);
             }
         }
     }
