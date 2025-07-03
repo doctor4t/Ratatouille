@@ -13,10 +13,6 @@
     "client.BlockRenderManagerAccessor",
     "client.PlayerEntityRendererMixin",
     "client.PlayerListEntryMixin",
-    "client.render.EffectProgramMixin",
-    "client.render.GameRendererMixin",
-    "client.render.ShaderImportProcessorMixin",
-    "client.render.ShaderMixin",
-    "client.render.WorldRendererMixin"
+    "client.PlayerEntityRenderStateMixin"
   ]
 }

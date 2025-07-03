@@ -1,7 +1,6 @@
 package dev.doctor4t.ratatouille.client.render.entity;
 
 import dev.doctor4t.ratatouille.block.PlushBlockEntity;
-import dev.doctor4t.ratatouille.mixin.client.BlockRenderManagerAccessor;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;
@@ -10,9 +9,14 @@ import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;
+import net.minecraft.client.render.model.BlockModelPart;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.List;
 
 @Environment(EnvType.CLIENT)
 public class PlushBlockEntityRenderer<T extends BlockEntity> implements BlockEntityRenderer<T> {
@@ -22,18 +26,19 @@ public class PlushBlockEntityRenderer<T extends BlockEntity> implements BlockEnt
         this.renderManager = ctx.getRenderManager();
     }
 
-    public void render(@NotNull T entity, float tickDelta, @NotNull MatrixStack matrices, @NotNull VertexConsumerProvider vertexConsumers, int light, int overlay) {
+    @Override
+    public void render(T entity, float tickProgress, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay, Vec3d cameraPos) {
         matrices.push();
         var squish = entity instanceof PlushBlockEntity plushie ? plushie.squash : 0;
         var lastSquish = squish * 3;
-        var squash = (float) Math.pow(1 - 1f / (1f + MathHelper.lerp(tickDelta, lastSquish, squish)), 2);
+        var squash = (float) Math.pow(1 - 1f / (1f + MathHelper.lerp(tickProgress, lastSquish, squish)), 2);
         matrices.scale(1, 1 - squash, 1);
         matrices.translate(0.5, 0, 0.5);
         matrices.scale(1 + squash / 2, 1, 1 + squash / 2);
         matrices.translate(-0.5, 0, -0.5);
         var state = entity.getCachedState();
-        var bakedModel = this.renderManager.getModel(state);
-        ((BlockRenderManagerAccessor) this.renderManager).getModelRenderer().render(matrices.peek(), vertexConsumers.getBuffer(RenderLayers.getEntityBlockLayer(state)), state, bakedModel, 0xFF, 0xFF, 0xFF, light, overlay);
+        List<BlockModelPart> list = this.renderManager.getModel(state).getParts(Random.create(state.getRenderingSeed(entity.getPos())));
+        this.renderManager.getModelRenderer().render(entity.getWorld(), list, state, entity.getPos(), matrices, vertexConsumers.getBuffer(RenderLayers.getMovingBlockLayer(state)), false, overlay);
         matrices.pop();
     }
 }

@@ -22,18 +22,20 @@ public class PlushOnHeadFeatureRenderer<S extends PlayerEntityRenderState, M ext
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, S state, float limbAngle, float limbDistance) {
-        ItemRenderState plushState = ((PlushOnHeadRenderStateAddition) state).ratatouille$getPlushOnHeadRenderState();
-        if (!plushState.isEmpty()) {
-            matrices.push();
-            this.getContextModel().getHead().rotate(matrices);
-            matrices.translate(0.0F, -0.25F, 0.0F);
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
-            float scale = 0.625F;
-            matrices.scale(scale, -scale, -scale);
+        if (state instanceof PlushOnHeadRenderStateAddition plushOnHeadRenderStateAddition) {
+            ItemRenderState plushState = plushOnHeadRenderStateAddition.ratatouille$getPlushOnHeadRenderState();
+            if (!plushState.isEmpty()) {
+                matrices.push();
+                this.getContextModel().getHead().applyTransform(matrices);
+                matrices.translate(0.0F, -0.25F, 0.0F);
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(180.0F));
+                float scale = 0.625F;
+                matrices.scale(scale, -scale, -scale);
 
-            plushState.render(matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV);
+                plushState.render(matrices, vertexConsumers, light, OverlayTexture.DEFAULT_UV);
 
-            matrices.pop();
+                matrices.pop();
+            }
         }
     }
 }

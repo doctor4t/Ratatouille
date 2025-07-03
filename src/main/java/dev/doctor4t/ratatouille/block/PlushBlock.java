@@ -69,7 +69,7 @@ public class PlushBlock extends BlockWithEntity implements Waterloggable {
     // todo check if needed
     @Override
     public BlockRenderType getRenderType(BlockState state) {
-        return super.getRenderType(state);
+        return BlockRenderType.INVISIBLE;
     }
 
     @Override
