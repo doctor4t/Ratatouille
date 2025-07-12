@@ -49,7 +49,8 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
         context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight());
         if (this.player != null) {
             // todo this just needs to be experimentally ported visually, not hard
-            drawEntity(context, this.x + 39, this.y + 123, 46, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
+            drawEntity(context, this.x + 26, this.y + 8, this.x + 75, this.y + 78, 30, 0.0625F, mouseX, mouseY, this.client.player);
+//            drawEntity(context, this.x + 39, this.y + 123, 46, 30, 0.0625F, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
         }
         context.drawText(this.textRenderer, this.title, this.width / 2 - this.textRenderer.getWidth(this.title) / 2, this.y + 7, 4210752, false);
         super.render(context, mouseX, mouseY, delta);

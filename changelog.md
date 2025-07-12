@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.1.0 - 1.21.1
+------------------------------------------------------
+- Added an interface that allows feature renderers extending it to render on the arm in first person automatically
+
+------------------------------------------------------
 Ratatouille 1.0.8 - 1.20.1
 ------------------------------------------------------
 - Fixed custom hit particle and sound items not always playing their effects when crits do

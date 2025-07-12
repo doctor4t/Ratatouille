@@ -1,7 +1,6 @@
 package dev.doctor4t.ratatouille.client;
 
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
-import dev.doctor4t.ratatouille.client.lib.render.handlers.RenderHandler;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
@@ -21,7 +20,7 @@ public class RatatouilleClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         // Initialize the render handler
-        RenderHandler.initialize();
+//        RenderHandler.initialize();
 
         // Block special renders
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
