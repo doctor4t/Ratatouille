@@ -8,7 +8,6 @@ import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.entity.LivingEntity;
-import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -21,23 +20,12 @@ import java.util.List;
 
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements FeatureRendererContext<T, M> {
-    @Shadow
-    @Final
-    protected List<FeatureRenderer<T, M>> features;
     @Unique
     List<FeatureRenderer<T, M>> firstPersonArmFeatures = new ArrayList<>();
-
-    @Unique
-    public List<FeatureRenderer<T, M>> getFirstPersonArmFeatures() {
-        return firstPersonArmFeatures;
-    }
 
     protected LivingEntityRendererMixin(EntityRendererFactory.Context ctx) {
         super(ctx);
     }
-
-    @Shadow
-    protected abstract boolean addFeature(FeatureRenderer<T, M> feature);
 
     @Shadow
     public abstract M getModel();
