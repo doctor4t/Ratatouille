@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.1.2 - 1.21.1
+------------------------------------------------------
+- Changed getTexture for the RendersArmInFirstPerson interface to take in a living entity parameter
+
+------------------------------------------------------
 Ratatouille 1.1.1 - 1.21.1
 ------------------------------------------------------
 - Added an interface and class for custom armor items that does not render the vanilla armor model when equipped

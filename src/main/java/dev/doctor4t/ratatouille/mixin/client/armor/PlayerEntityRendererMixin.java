@@ -58,7 +58,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
                 model.setAngles(player, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
                 ModelPart arm = rightArm ? rendersArmInFirstPerson.getRightArm() : rendersArmInFirstPerson.getLeftArm();
                 arm.pitch = 0.0F;
-                arm.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(rendersArmInFirstPerson.getTexture())), light, OverlayTexture.DEFAULT_UV);
+                arm.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(rendersArmInFirstPerson.getTexture(player))), light, OverlayTexture.DEFAULT_UV);
             }
         }
     }

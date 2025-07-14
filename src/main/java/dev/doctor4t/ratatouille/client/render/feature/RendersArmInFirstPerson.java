@@ -11,7 +11,7 @@ public interface RendersArmInFirstPerson<T extends LivingEntity> {
 
     BipedEntityModel<T> getModel(LivingEntity livingEntity);
 
-    Identifier getTexture();
+    Identifier getTexture(LivingEntity livingEntity);
 
     ModelPart getRightArm();
 
