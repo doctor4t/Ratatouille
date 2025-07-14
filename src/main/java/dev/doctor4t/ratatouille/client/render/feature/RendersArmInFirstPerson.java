@@ -9,7 +9,7 @@ import net.minecraft.util.Identifier;
 public interface RendersArmInFirstPerson<T extends LivingEntity> {
     boolean isFeatureEnabled(AbstractClientPlayerEntity livingEntity);
 
-    BipedEntityModel<T> getModel();
+    BipedEntityModel<T> getModel(LivingEntity livingEntity);
 
     Identifier getTexture();
 
