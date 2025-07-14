@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.1.1 - 1.21.1
+------------------------------------------------------
+- Added an interface and class for custom armor items that does not render the vanilla armor model when equipped
+
+------------------------------------------------------
 Ratatouille 1.1.0 - 1.21.1
 ------------------------------------------------------
 - Added an interface that allows feature renderers extending it to render on the arm in first person automatically
