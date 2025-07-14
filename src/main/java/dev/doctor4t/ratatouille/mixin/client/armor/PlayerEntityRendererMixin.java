@@ -41,7 +41,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
     @Unique
     private void renderArmorArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, boolean rightArm) {
         for (FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> featureRenderer : this.firstPersonArmFeatures) {
-            if (featureRenderer instanceof RendersArmInFirstPerson<?> rendersArmInFirstPerson && rendersArmInFirstPerson.isFeatureEnabled(player)) {
+            if (featureRenderer instanceof RendersArmInFirstPerson<?> rendersArmInFirstPerson && rendersArmInFirstPerson.isFeatureEnabled(player) && rendersArmInFirstPerson.getModel(player) != null) {
                 @SuppressWarnings("unchecked") BipedEntityModel<AbstractClientPlayerEntity> model = (BipedEntityModel<AbstractClientPlayerEntity>) rendersArmInFirstPerson.getModel(player);
 
                 // Features don't render unless the player is rendered, so we are just forcing the rendering here but scaling it by zero to make it invisible
