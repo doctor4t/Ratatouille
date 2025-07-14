@@ -1,4 +1,10 @@
 ------------------------------------------------------
+Ratatouille 1.1.3 - 1.21.1
+------------------------------------------------------
+- Changed getRightArm for the RendersArmInFirstPerson interface to take in a living entity parameter
+- Changed getLeftArm for the RendersArmInFirstPerson interface to take in a living entity parameter
+
+------------------------------------------------------
 Ratatouille 1.1.2 - 1.21.1
 ------------------------------------------------------
 - Changed getTexture for the RendersArmInFirstPerson interface to take in a living entity parameter

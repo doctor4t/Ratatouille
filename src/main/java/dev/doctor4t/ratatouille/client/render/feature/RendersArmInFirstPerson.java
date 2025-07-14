@@ -13,7 +13,7 @@ public interface RendersArmInFirstPerson<T extends LivingEntity> {
 
     Identifier getTexture(LivingEntity livingEntity);
 
-    ModelPart getRightArm();
+    ModelPart getRightArm(LivingEntity livingEntity);
 
-    ModelPart getLeftArm();
+    ModelPart getLeftArm(LivingEntity livingEntity);
 }
