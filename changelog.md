@@ -1,4 +1,13 @@
 ------------------------------------------------------
+Ratatouille 1.2.0 - 1.21.1
+------------------------------------------------------
+- Added the ability to give items and armor to mobs by interacting with them while in creative and sneaking with an item in hand
+- Added the ability to hit mobs in creative while sneaking with an empty hand to make them drop all their equipped items
+- Added a custom model armor util
+  - Allows adding armor with custom models with a single method call (and custom model)
+  - Automatically displays said custom armor on a player's hands in first person.
+
+------------------------------------------------------
 Ratatouille 1.1.3 - 1.21.1
 ------------------------------------------------------
 - Changed getRightArm for the RendersArmInFirstPerson interface to take in a living entity parameter

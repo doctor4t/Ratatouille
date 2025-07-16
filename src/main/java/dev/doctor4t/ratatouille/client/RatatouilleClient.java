@@ -2,10 +2,12 @@ package dev.doctor4t.ratatouille.client;
 
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
+import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.minecraft.client.MinecraftClient;
@@ -16,6 +18,8 @@ import net.minecraft.util.TypedActionResult;
 
 public class RatatouilleClient implements ClientModInitializer {
     private static boolean openCosmeticsScreen;
+
+
 
     @Override
     public void onInitializeClient() {
