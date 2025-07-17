@@ -1,6 +1,12 @@
-# Ratatouille
+<div align="center">
+  <h1>Ratatouille</h1>
 
-### A library for doctor4t's mods and supporter cosmetics
+<a href="https://modrinth.com/mod/fabric-api"><img src="https://raw.githubusercontent.com/intergrav/devins-badges/c7fd18efdadd1c3f12ae56b49afd834640d2d797/assets/cozy/requires/fabric-api_vector.svg"></a>
+<a href="https://discord.gg/rattiestgang"><img src="https://raw.githubusercontent.com/intergrav/devins-badges/c7fd18efdadd1c3f12ae56b49afd834640d2d797/assets/cozy/social/discord-plural_vector.svg"></a>
+<a href="https://ko-fi.com/doctor4t"><img src="https://raw.githubusercontent.com/intergrav/devins-badges/c7fd18efdadd1c3f12ae56b49afd834640d2d797/assets/cozy/donate/kofi-singular_vector.svg"></a>
+
+<h3>A library for doctor4t's mods and supporter cosmetics</h3>
+</div>
 
 ## Features
 
