@@ -1,5 +1,4 @@
 package dev.doctor4t.ratatouille.client.util;
-
 import dev.doctor4t.ratatouille.client.model.armor.CustomArmorModelDefinition;
 import dev.doctor4t.ratatouille.client.model.armor.CustomBipedArmorModel;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
