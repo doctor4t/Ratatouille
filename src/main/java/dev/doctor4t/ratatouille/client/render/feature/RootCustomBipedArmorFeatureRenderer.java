@@ -46,11 +46,11 @@ public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M exten
             boolean shouldDisplayBoots = customArmorSetItems.shouldDisplayBoots(entity);
 
             // apply visibility
-            customArmorModel.head.visible = shouldDisplayHelmet;
+            customArmorModel.helmet.visible = shouldDisplayHelmet;
 
             customArmorModel.body_chestplate.visible = shouldDisplayChestplate;
-            customArmorModel.leftArm.visible = shouldDisplayChestplate;
-            customArmorModel.rightArm.visible = shouldDisplayChestplate;
+            customArmorModel.right_arm_chestplate.visible = shouldDisplayChestplate;
+            customArmorModel.left_arm_chestplate.visible = shouldDisplayChestplate;
 
             customArmorModel.body_leggings.visible = shouldDisplayLeggings;
             customArmorModel.right_leg_leggings.visible = shouldDisplayLeggings;
@@ -83,17 +83,5 @@ public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M exten
     @Override
     public Identifier getTexture(LivingEntity livingEntity) {
         return this.getModel(livingEntity).getTexture();
-    }
-
-    @Override
-    public ModelPart getRightArm(LivingEntity livingEntity) {
-        CustomBipedArmorModel<T> model = this.getModel(livingEntity);
-        return model != null ? model.right_arm : null;
-    }
-
-    @Override
-    public ModelPart getLeftArm(LivingEntity livingEntity) {
-        CustomBipedArmorModel<T> model = this.getModel(livingEntity);
-        return model != null ? model.left_arm : null;
     }
 }

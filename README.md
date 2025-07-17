@@ -50,8 +50,8 @@ This util allows you to easily register new armor sets that use a custom model w
 
 Before we can add our custom armor, we need a model that respects a few rules. You can find an armor template model (Blockbench model file) and texture in the `RESOURCES` folder of the repository. While you can edit this model and texture freely in order to shape up the armor of your dreams, please note that the existing groups are very important and while you can add new sub-groups to them, you cannot and should not delete any existing group as they allow the library to know what should be displayed when a player (or armor stand or mob) dons armor pieces:
 
-- `head` displays when the helmet item is equipped
-- `body_chestplate`, `right_arm` and `left_arm` display when the chestplate item is equipped
+- `helmet` displays when the helmet item is equipped
+- `body_chestplate`, `right_arm_chestplate` and `left_arm_chestplate` display when the chestplate item is equipped
 - `body_leggings`, `right_leg_leggings` and `left_leg_leggings` display when the leggings item is equipped
 - `right_leg_boot` and `left_leg_boot` display when the boots item is equipped
 

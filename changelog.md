@@ -1,4 +1,12 @@
 ------------------------------------------------------
+Ratatouille 1.2.1 - 1.21.1
+------------------------------------------------------
+- Removed getRightArm and getLeftArm from the RendersArmInFirstPerson interface
+  - Given the interface is supposed to be implemented on a BipedEntityModel, it will now automatically use the "right_arm" and "left_arm" parts of the biped model
+- Tweaked the custom armor model and template to more closely match biped entity models
+- Fixed custom armor models not properly matching baby biped mobs
+
+------------------------------------------------------
 Ratatouille 1.2.0 - 1.21.1
 ------------------------------------------------------
 - Added the ability to give items and armor to mobs by interacting with them while in creative and sneaking with an item in hand

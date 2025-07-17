@@ -21,9 +21,8 @@ public interface RatatouilleBlockEntities {
         return blockEntityType;
     }
 
-    BlockEntityType<PlushBlockEntity> PLUSH = create("plush", FabricBlockEntityTypeBuilder
-            .create(PlushBlockEntity::new)
-            .addBlocks(RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
+    BlockEntityType<PlushBlockEntity> PLUSH = create("plush", BlockEntityType.Builder
+            .create(PlushBlockEntity::new, RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
             .build());
 
     static void initialize() {

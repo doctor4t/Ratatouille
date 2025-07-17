@@ -39,7 +39,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
     }
 
     @Unique
-    private void renderArmorArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, boolean rightArm) {
+    private void renderArmorArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, boolean isRightArm) {
         for (FeatureRenderer<AbstractClientPlayerEntity, PlayerEntityModel<AbstractClientPlayerEntity>> featureRenderer : this.firstPersonArmFeatures) {
             if (featureRenderer instanceof RendersArmInFirstPerson<?> rendersArmInFirstPerson && rendersArmInFirstPerson.isFeatureEnabled(player) && rendersArmInFirstPerson.getModel(player) != null) {
                 @SuppressWarnings("unchecked") BipedEntityModel<AbstractClientPlayerEntity> model = (BipedEntityModel<AbstractClientPlayerEntity>) rendersArmInFirstPerson.getModel(player);
@@ -56,7 +56,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
                 model.sneaking = false;
                 model.leaningPitch = 0.0F;
                 model.setAngles(player, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F);
-                ModelPart arm = rightArm ? rendersArmInFirstPerson.getRightArm(player) : rendersArmInFirstPerson.getLeftArm(player);
+                ModelPart arm = isRightArm ? model.rightArm : model.leftArm;
                 if (arm != null) {
                     arm.pitch = 0.0F;
                     arm.render(matrices, vertexConsumers.getBuffer(RenderLayer.getEntityTranslucent(rendersArmInFirstPerson.getTexture(player))), light, OverlayTexture.DEFAULT_UV);
