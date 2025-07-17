@@ -29,10 +29,18 @@
   - Head plushies: Sneak-use any plush item while not aiming at a block to open the cosmetics screen
 
 ## Gallery
+
+<details>
+  <summary>Expand gallery</summary>
+
 ![Plushies](https://cdn.modrinth.com/data/yufdeaJg/images/63d0d1ffabe3dc2037e9fa534bba377da1c59cb3.png)
 ![Cosmetics screen](https://cdn.modrinth.com/data/yufdeaJg/images/ad8d1a1aa39d9534d7fd41a824bea09bc1129e5a.png)
 
+</details>
+
 ## Documentation
+<details>
+  <summary>Expand documentation</summary>
 
 ### Custom model armor util
 
@@ -65,3 +73,5 @@ The last step is to register your custom armor rendering in your client initiali
 - `int textureWidth, int textureHeight`: The armor's texture width and height.
 
 Registering your armor through this method call will take care of everything for you, like creating the textured model data, model layer and appending the feature to the player / armor stand / mob renderers. If you need to access the model data or model layer of the armor, you can find them in the `CustomModelArmorUtil.CUSTOM_ARMOR_MODELS` HashMap by using the armor's `setItems` as the key.
+
+</details>
