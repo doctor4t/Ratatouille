@@ -1,8 +1,8 @@
 package dev.doctor4t.ratatouille.client.render.feature;
 
 import dev.doctor4t.ratatouille.client.model.armor.CustomBipedArmorModel;
+import dev.doctor4t.ratatouille.client.util.ArmorDisplayConditions;
 import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
-import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
@@ -20,20 +20,20 @@ import java.util.Map;
 
 @SuppressWarnings("unchecked")
 public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M extends BipedEntityModel<T>> extends FeatureRenderer<T, M> implements RendersArmInFirstPerson<T> {
-    public final Map<CustomModelArmorUtil.SetItems, CustomBipedArmorModel<LivingEntity>> customArmorModels;
+    public final Map<ArmorDisplayConditions, CustomBipedArmorModel<LivingEntity>> customArmorModels;
 
     public RootCustomBipedArmorFeatureRenderer(FeatureRendererContext<T, M> context, EntityRendererFactory.Context loader) {
         super(context);
 
         this.customArmorModels = new HashMap<>();
-        for (CustomModelArmorUtil.SetItems setItems : CustomModelArmorUtil.CUSTOM_ARMOR_MODELS.keySet()) {
-            this.customArmorModels.put(setItems, CustomModelArmorUtil.CUSTOM_ARMOR_MODELS.get(setItems).modelConstructor().apply(loader));
+        for (ArmorDisplayConditions displayConditions : CustomModelArmorUtil.CUSTOM_ARMOR_MODELS.keySet()) {
+            this.customArmorModels.put(displayConditions, CustomModelArmorUtil.CUSTOM_ARMOR_MODELS.get(displayConditions).modelConstructor().apply(loader));
         }
     }
 
     @Override
     public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-        for (CustomModelArmorUtil.SetItems customArmorSetItems : customArmorModels.keySet()) {
+        for (ArmorDisplayConditions customArmorSetItems : customArmorModels.keySet()) {
             CustomBipedArmorModel<T> customArmorModel = (CustomBipedArmorModel<T>) customArmorModels.get(customArmorSetItems);
 
             // rotations
@@ -66,9 +66,9 @@ public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M exten
 
     @Override
     public CustomBipedArmorModel<T> getModel(LivingEntity livingEntity) {
-        for (CustomModelArmorUtil.SetItems customArmorSetItems : customArmorModels.keySet()) {
-            if (customArmorSetItems.shouldDisplayChestplate(livingEntity)) {
-                return (CustomBipedArmorModel<T>) customArmorModels.get(customArmorSetItems);
+        for (ArmorDisplayConditions displayConditions : customArmorModels.keySet()) {
+            if (displayConditions.shouldDisplayChestplate(livingEntity)) {
+                return (CustomBipedArmorModel<T>) customArmorModels.get(displayConditions);
             }
         }
 

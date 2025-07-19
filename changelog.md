@@ -1,4 +1,11 @@
 ------------------------------------------------------
+Ratatouille 1.2.2 - 1.21.1
+------------------------------------------------------
+- Replaced CustomModelArmorUtil.SetItems record with the ArmorDisplayConditions abstract class
+  - This abstract class has no functionality on its own and needs to be extended and have its four shouldDisplay methods defined
+- Added an ItemSetDisplayConditions class that works the same way CustomModelArmorUtil.SetItems did
+
+------------------------------------------------------
 Ratatouille 1.2.1 - 1.21.1
 ------------------------------------------------------
 - Removed getRightArm and getLeftArm from the RendersArmInFirstPerson interface

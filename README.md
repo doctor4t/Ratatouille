@@ -68,10 +68,10 @@ If your armor item uses a custom item class and not the regular Vanilla `ArmorIt
 The last step is to register your custom armor rendering in your client initialization. Call `CustomModelArmorUtil.registerCustomArmor` and give it the required parameters:
 
 - `Identifier id`: The id of the custom armor. This is used in order to automatically generate and register the model layer of your armor, it should therefore be unique.
-- `CustomModelArmorUtil.SetItems setItems`: The items that comprise your set. The `CustomModelArmorUtil.SetItems` record defines the helmet, chestplate, leggings and boots items and by default indicates to the renderer what to display depending on what is equipped. If you wish to have a custom logic for displaying different pieces that is not just checking whether the item is being worn, you can extend this record and override the four `shouldDisplay` methods.
+- `ArmorDisplayConditions displayConditions`: The display conditions that need to be met for your armor parts to render. If you want a simple armor that displays its parts for each item you equip, the `ItemSetDisplayConditions` allows you to define the helmet, chestplate, leggings and boots items and will automatically check which armor items are equipped and need to be displayed. If you wish to have a custom logic for displaying different pieces that is not just checking whether the item is being worn, you can implement the `ArmorDisplayConditions ` and its four `shouldDisplay` methods.
 - `CustomArmorModelDefinition armorModelDefinition`: The model definition we created in Step 1, simply create a new instance of it.
 - `int textureWidth, int textureHeight`: The armor's texture width and height.
 
-Registering your armor through this method call will take care of everything for you, like creating the textured model data, model layer and appending the feature to the player / armor stand / mob renderers. If you need to access the model data or model layer of the armor, you can find them in the `CustomModelArmorUtil.CUSTOM_ARMOR_MODELS` HashMap by using the armor's `setItems` as the key.
+Registering your armor through this method call will take care of everything for you, like creating the textured model data, model layer and appending the feature to the player / armor stand / mob renderers. If you need to access the model data or model layer of the armor, you can find them in the `CustomModelArmorUtil.CUSTOM_ARMOR_MODELS` HashMap by using the armor's `displayConditions` as the key.
 
 </details>
