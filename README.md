@@ -75,3 +75,21 @@ The last step is to register your custom armor rendering in your client initiali
 Registering your armor through this method call will take care of everything for you, like creating the textured model data, model layer and appending the feature to the player / armor stand / mob renderers. If you need to access the model data or model layer of the armor, you can find them in the `CustomModelArmorUtil.CUSTOM_ARMOR_MODELS` HashMap by using the armor's `displayConditions` as the key.
 
 </details>
+
+## build.gradle
+
+<details>
+  <summary>Expand Gradle details</summary>
+
+```
+repositories {
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+}
+
+dependencies {
+    modImplementation "dev.doctor4t:ratatouille:${project.ratatouille_version}"
+}
+```
+</details>
