@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.2.3 - 1.21.1
+------------------------------------------------------
+- Removed the CustomRenderArmor interface and CustomRenderArmorItem class and made the CustomModelArmorUtil automatically not render items registered with ItemSetDisplayConditions
+
+------------------------------------------------------
 Ratatouille 1.2.2 - 1.21.1
 ------------------------------------------------------
 - Replaced CustomModelArmorUtil.SetItems record with the ArmorDisplayConditions abstract class

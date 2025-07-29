@@ -57,18 +57,12 @@ Before we can add our custom armor, we need a model that respects a few rules. Y
 
 Once you have finalized your model, you can export it with Blockbench: `File -> Export -> Export Java Entity`. Open the generated Java class and copy the lines between `ModelPartData modelPartData = modelData.getRoot();` and the line right before the return (included) in `getTexturedModelData()`. Ratatouille adds a new model class type that simplifies armor model definition called `CustomArmorModelDefinition`; extend that class and implement the `addModelParts` method by pasting the snippet you copied from the generated model class. Then implement `getTexture()`; the simplest way to do so is to have a static Identifier for your armor texture in your Model Definition class and return that, but if you wish to do a special logic that varies the returned texture you can naturally do so as well.
 
-#### Step 2: Registering the items (common)
+#### Step 2: Registering the custom armor with Ratatouille (client)
 
-This part is the most straightforward: register your armor items as you would normally, but use `CustomRenderArmorItem` instead of the regular Vanilla `ArmorItem` class. This is to tell the library to cancel the game's Vanilla armor rendering for your armor items; otherwise, the game will render a missing texture over the Vanilla armor model.
-
-If your armor item uses a custom item class and not the regular Vanilla `ArmorItem` class, all you have to do is simply make your custom armor item class implement the Ratatouille `CustomRenderArmor` interface.
-
-#### Step 3: Registering the custom armor with Ratatouille (client)
-
-The last step is to register your custom armor rendering in your client initialization. Call `CustomModelArmorUtil.registerCustomArmor` and give it the required parameters:
+The second - and last - step is to register your custom armor rendering in your client initialization. Call `CustomModelArmorUtil.registerCustomArmor` and give it the required parameters:
 
 - `Identifier id`: The id of the custom armor. This is used in order to automatically generate and register the model layer of your armor, it should therefore be unique.
-- `ArmorDisplayConditions displayConditions`: The display conditions that need to be met for your armor parts to render. If you want a simple armor that displays its parts for each item you equip, the `ItemSetDisplayConditions` allows you to define the helmet, chestplate, leggings and boots items and will automatically check which armor items are equipped and need to be displayed. If you wish to have a custom logic for displaying different pieces that is not just checking whether the item is being worn, you can implement the `ArmorDisplayConditions ` and its four `shouldDisplay` methods.
+- `ArmorDisplayConditions displayConditions`: The display conditions that need to be met for your armor parts to render. If you want a simple armor that displays its parts for each item you equip, the `ItemSetDisplayConditions` allows you to define the helmet, chestplate, leggings and boots items and will automatically check which armor items are equipped and need to be displayed, as well as prevent the rendering of the vanilla armor model with a missing texture. If you wish to have a custom logic for displaying different pieces that is not just checking whether the item is being worn, you can implement the `ArmorDisplayConditions ` and its four `shouldDisplay` methods.
 - `CustomArmorModelDefinition armorModelDefinition`: The model definition we created in Step 1, simply create a new instance of it.
 - `int textureWidth, int textureHeight`: The armor's texture width and height.
 
