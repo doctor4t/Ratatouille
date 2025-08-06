@@ -30,7 +30,7 @@ public abstract class ArmorFeatureRendererMixin<T extends LivingEntity, M extend
     @WrapOperation(method = "renderArmor", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/feature/ArmorFeatureRenderer;renderArmorParts(Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;ILnet/minecraft/client/render/entity/model/BipedEntityModel;ILnet/minecraft/util/Identifier;)V"))
     private void hadopelagic$cancelVanillaArmorRendering(ArmorFeatureRenderer<T, M, A> instance, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, A model, int j, Identifier identifier, Operation<Void> original, @Local(argsOnly = true) T entity, @Local(argsOnly = true) EquipmentSlot armorSlot) {
         ItemStack itemStack = entity.getEquippedStack(armorSlot);
-        if (CustomModelArmorUtil.CUSTOM_ARMOR_ITEMS.contains(itemStack.getItem())) {
+        if (!CustomModelArmorUtil.CUSTOM_ARMOR_ITEMS.contains(itemStack.getItem())) {
             original.call(instance, matrices, vertexConsumers, light, model, j, identifier);
         }
     }

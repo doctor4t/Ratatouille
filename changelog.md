@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.2.4 - 1.21.1
+------------------------------------------------------
+- Fixed custom armor rendering missing textures and vanilla armor no longer rendering (I accidentally inverted the check condition I'm so silly and incompetent)
+
+------------------------------------------------------
 Ratatouille 1.2.3 - 1.21.1
 ------------------------------------------------------
 - Removed the CustomRenderArmor interface and CustomRenderArmorItem class and made the CustomModelArmorUtil automatically not render items registered with ItemSetDisplayConditions
