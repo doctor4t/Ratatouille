@@ -9,7 +9,8 @@ public class RatatouilleDatagen implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator dataGenerator) {
         FabricDataGenerator.Pack pack = dataGenerator.createPack();
         pack.addProvider(RatatouilleModelGen::new);
-        pack.addProvider(RatatouilleBlockTagGen::new);
+        pack.addProvider(RatatouilleTagGen.RatatouilleBlockTagGen::new);
+        pack.addProvider(RatatouilleTagGen.RatatouilleItemTagGen::new);
         pack.addProvider(RatatouilleLangGen::new);
         pack.addProvider(RatatouilleBlockLootTableGen::new);
         pack.addProvider(RatatouilleRecipeGen::new);
