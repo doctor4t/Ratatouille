@@ -1,15 +1,19 @@
 package dev.doctor4t.ratatouille.client;
 
+import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
+import dev.doctor4t.ratatouille.client.model.armor.TestArmorModelDefinition;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
 import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
+import dev.doctor4t.ratatouille.client.util.ItemSetDisplayConditions;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
+import dev.doctor4t.ratatouille.index.RatatouilleItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -25,6 +29,21 @@ public class RatatouilleClient implements ClientModInitializer {
     public void onInitializeClient() {
         // Initialize the render handler
 //        RenderHandler.initialize();
+
+        // Register test custom armor
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            CustomModelArmorUtil.registerCustomArmor(
+                    Ratatouille.id("test_armor"),
+                    new ItemSetDisplayConditions(
+                            RatatouilleItems.TEST_ARMOR_HELMET,
+                            RatatouilleItems.TEST_ARMOR_CHESTPLATE,
+                            RatatouilleItems.TEST_ARMOR_LEGGINGS,
+                            RatatouilleItems.TEST_ARMOR_BOOTS
+                    ),
+                    new TestArmorModelDefinition(),
+                    128, 128
+            );
+        }
 
         // Block special renders
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),

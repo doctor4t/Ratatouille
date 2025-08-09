@@ -1,8 +1,10 @@
 package dev.doctor4t.ratatouille.client.model.armor;
 
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.EntityModelPartNames;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 
@@ -61,5 +63,46 @@ public class CustomBipedArmorModel<T extends LivingEntity> extends BipedEntityMo
 
     public Identifier getTexture() {
         return this.modelDefinition.getTexture();
+    }
+
+    public void renderParts(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, Part part) {
+        toggleVisibility(part == Part.HELMET, part == Part.CHESTPLATE, part == Part.LEGGINGS, part == Part.BOOTS);
+        render(matrices, vertices, light, overlay);
+        toggleVisibility(true, true, true, true);
+    }
+
+    private void toggleVisibility(boolean helmet, boolean chestplate, boolean leggings, boolean boots) {
+        this.helmet.visible = helmet;
+
+        this.body_chestplate.visible = chestplate;
+        this.right_arm_chestplate.visible = chestplate;
+        this.left_arm_chestplate.visible = chestplate;
+
+        this.body_leggings.visible = leggings;
+        this.right_leg_leggings.visible = leggings;
+        this.left_leg_leggings.visible = leggings;
+
+        this.right_leg_boot.visible = boots;
+        this.left_leg_boot.visible = boots;
+    }
+
+    public enum Part {
+        HELMET, CHESTPLATE, LEGGINGS, BOOTS
+    }
+
+    public void renderHelmet(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+        this.renderParts(matrices, vertices, light, overlay, Part.HELMET);
+    }
+
+    public void renderChestplate(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+        this.renderParts(matrices, vertices, light, overlay, Part.CHESTPLATE);
+    }
+
+    public void renderLeggings(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+        this.renderParts(matrices, vertices, light, overlay, Part.LEGGINGS);
+    }
+
+    public void renderBoots(MatrixStack matrices, VertexConsumer vertices, int light, int overlay) {
+        this.renderParts(matrices, vertices, light, overlay, Part.BOOTS);
     }
 }

@@ -42,8 +42,27 @@
 <details>
   <summary>Expand documentation</summary>
 
+## Setup (build.gradle)
+
+<details>
+  <summary>Expand Gradle details</summary>
+
+```
+repositories {
+    maven {
+        name = 'Ladysnake Mods'
+        url = 'https://maven.ladysnake.org/releases'
+}
+
+dependencies {
+    modImplementation "dev.doctor4t:ratatouille:${project.ratatouille_version}"
+}
+```
+</details>
+
 ### Custom model armor util
 
+<details>
 This util allows you to easily register new armor sets that use a custom model with a single method call (and that custom model as the game does need to know what you wish to render).
 
 #### Step 1: Defining the model (client)
@@ -67,23 +86,6 @@ The second - and last - step is to register your custom armor rendering in your 
 - `int textureWidth, int textureHeight`: The armor's texture width and height.
 
 Registering your armor through this method call will take care of everything for you, like creating the textured model data, model layer and appending the feature to the player / armor stand / mob renderers. If you need to access the model data or model layer of the armor, you can find them in the `CustomModelArmorUtil.CUSTOM_ARMOR_MODELS` HashMap by using the armor's `displayConditions` as the key.
-
 </details>
 
-## build.gradle
-
-<details>
-  <summary>Expand Gradle details</summary>
-
-```
-repositories {
-    maven {
-        name = 'Ladysnake Mods'
-        url = 'https://maven.ladysnake.org/releases'
-}
-
-dependencies {
-    modImplementation "dev.doctor4t:ratatouille:${project.ratatouille_version}"
-}
-```
 </details>

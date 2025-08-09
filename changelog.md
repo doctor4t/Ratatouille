@@ -1,4 +1,11 @@
 ------------------------------------------------------
+Ratatouille 1.2.5 - 1.21.1
+------------------------------------------------------
+- Custom armor pieces using the custom model armor util now properly display glint
+- Added four new methods to the ArmorDisplayConditions class that allows defining custom glint display conditions for armor pieces
+- Added a custom test armor using the custom model armor util in dev environments
+
+------------------------------------------------------
 Ratatouille 1.2.4 - 1.21.1
 ------------------------------------------------------
 - Fixed custom armor rendering missing textures and vanilla armor no longer rendering (I accidentally inverted the check condition I'm so silly and incompetent)

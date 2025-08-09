@@ -10,3 +10,10 @@ accessible field net/minecraft/client/gl/ShaderProgram uniforms Ljava/util/List;
 accessible field net/minecraft/client/render/RenderLayer$MultiPhaseParameters transparency Lnet/minecraft/client/render/RenderPhase$Transparency;
 accessible field net/minecraft/client/render/RenderLayer$MultiPhaseParameters texture Lnet/minecraft/client/render/RenderPhase$TextureBase;
 accessible field net/minecraft/client/render/RenderPhase name Ljava/lang/String;
+
+accessible field net/minecraft/client/render/entity/model/AnimalModel headScaled Z
+accessible field net/minecraft/client/render/entity/model/AnimalModel invertedChildHeadScale F
+accessible field net/minecraft/client/render/entity/model/AnimalModel childHeadYOffset F
+accessible field net/minecraft/client/render/entity/model/AnimalModel childHeadZOffset F
+accessible field net/minecraft/client/render/entity/model/AnimalModel invertedChildBodyScale F
+accessible field net/minecraft/client/render/entity/model/AnimalModel childBodyYOffset F
