@@ -1,4 +1,4 @@
-// 1.20.1	2024-12-01T21:56:55.5412765	Ratatouille/Block Loot Tables
-850f98d7ff39338389bec8d37d7eb94b9a29548e data\ratatouille\loot_tables\blocks\mauve_plush.json
-a6ec18d9b86b05a2c04a9a5f7170adaa2b757dd3 data\ratatouille\loot_tables\blocks\folly_plush.json
-6e516518410f3125f6d7a6699585d8c278a630ec data\ratatouille\loot_tables\blocks\rat_maid_plush.json
+// 1.21.1	2025-08-09T16:53:07.8178717	Ratatouille/Block Loot Tables
+6e516518410f3125f6d7a6699585d8c278a630ec data\ratatouille\loot_table\blocks\rat_maid_plush.json
+a6ec18d9b86b05a2c04a9a5f7170adaa2b757dd3 data\ratatouille\loot_table\blocks\folly_plush.json
+850f98d7ff39338389bec8d37d7eb94b9a29548e data\ratatouille\loot_table\blocks\mauve_plush.json

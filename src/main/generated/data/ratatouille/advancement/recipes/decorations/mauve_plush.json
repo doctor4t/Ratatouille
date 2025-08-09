@@ -1,25 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_black_wool": {
+    "has_blue_wool": {
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:black_wool"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_gray_wool": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:gray_wool"
-            ]
+            "items": "minecraft:blue_wool"
           }
         ]
       },
@@ -29,9 +15,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:pink_wool"
-            ]
+            "items": "minecraft:pink_wool"
           }
         ]
       },
@@ -41,9 +25,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:red_wool"
-            ]
+            "items": "minecraft:red_wool"
           }
         ]
       },
@@ -51,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "ratatouille:rat_maid_plush"
+        "recipe": "ratatouille:mauve_plush"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -59,9 +41,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:white_wool"
-            ]
+            "items": "minecraft:white_wool"
           }
         ]
       },
@@ -70,18 +50,16 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_white_wool",
-      "has_black_wool",
+      "has_blue_wool",
       "has_pink_wool",
-      "has_gray_wool",
-      "has_red_wool",
-      "has_the_recipe"
+      "has_red_wool"
     ]
   ],
   "rewards": {
     "recipes": [
-      "ratatouille:rat_maid_plush"
+      "ratatouille:mauve_plush"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

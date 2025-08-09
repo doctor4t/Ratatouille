@@ -40,15 +40,18 @@ public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M exten
 
             this.getContextModel().copyBipedStateTo(customArmorModel);
 
-            VertexConsumer helmetBuffer = ItemRenderer.getArmorGlintConsumer(vertexConsumers, RenderLayer.getEntityTranslucent(customArmorModel.getTexture()), customArmorSetConditions.shouldDisplayHelmetGlint(entity));
-            VertexConsumer chestplateBuffer = ItemRenderer.getArmorGlintConsumer(vertexConsumers, RenderLayer.getEntityTranslucent(customArmorModel.getTexture()), customArmorSetConditions.shouldDisplayChestplateGlint(entity));
-            VertexConsumer leggingsBuffer = ItemRenderer.getArmorGlintConsumer(vertexConsumers, RenderLayer.getEntityTranslucent(customArmorModel.getTexture()), customArmorSetConditions.shouldDisplayLeggingsGlint(entity));
-            VertexConsumer bootsBuffer = ItemRenderer.getArmorGlintConsumer(vertexConsumers, RenderLayer.getEntityTranslucent(customArmorModel.getTexture()), customArmorSetConditions.shouldDisplayBootsGlint(entity));
+            RenderLayer translucentRenderLayer = RenderLayer.getEntityTranslucent(customArmorModel.getTexture());
+            VertexConsumer helmetBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayHelmetGlint(entity));
+            VertexConsumer chestplateBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayChestplateGlint(entity));
+            VertexConsumer leggingsBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayLeggingsGlint(entity));
+            VertexConsumer bootsBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayBootsGlint(entity));
 
             if (customArmorSetConditions.shouldDisplayHelmet(entity)) customArmorModel.renderHelmet(matrices, helmetBuffer, light, OverlayTexture.DEFAULT_UV);
             if (customArmorSetConditions.shouldDisplayChestplate(entity)) customArmorModel.renderChestplate(matrices, chestplateBuffer, light, OverlayTexture.DEFAULT_UV);
             if (customArmorSetConditions.shouldDisplayLeggings(entity)) customArmorModel.renderLeggings(matrices, leggingsBuffer, light, OverlayTexture.DEFAULT_UV);
             if (customArmorSetConditions.shouldDisplayBoots(entity)) customArmorModel.renderBoots(matrices, bootsBuffer, light, OverlayTexture.DEFAULT_UV);
+
+
         }
     }
 

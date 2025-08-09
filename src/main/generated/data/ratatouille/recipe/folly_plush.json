@@ -18,7 +18,7 @@
     "BPB"
   ],
   "result": {
-    "item": "ratatouille:folly_plush"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "ratatouille:folly_plush"
+  }
 }
