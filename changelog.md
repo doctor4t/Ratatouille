@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.3 - 1.21.1
+------------------------------------------------------
+- Added an ambience util: can be used to register background ambiences or block entity dependant ambiences
+
+------------------------------------------------------
 Ratatouille 1.2.5 - 1.21.1
 ------------------------------------------------------
 - Custom armor pieces using the custom model armor util now properly display glint
