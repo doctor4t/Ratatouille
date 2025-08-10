@@ -3,7 +3,7 @@ package dev.doctor4t.ratatouille.mixin.client.armor;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
+import dev.doctor4t.ratatouille.client.util.armor.CustomModelArmorUtil;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;

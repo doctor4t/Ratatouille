@@ -16,5 +16,12 @@
       "ratatouille:block/mauve_plush_honk"
     ],
     "subtitle": "subtitles.ratatouille.block.plush_honk"
+  },
+
+  "ambient.ship": {
+    "sounds": [
+      "ratatouille:ambient/ship"
+    ],
+    "subtitle": "subtitles.ambient.ship"
   }
 }

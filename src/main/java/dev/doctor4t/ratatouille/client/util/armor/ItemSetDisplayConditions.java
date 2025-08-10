@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.client.util;
+package dev.doctor4t.ratatouille.client.util.armor;
 
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;

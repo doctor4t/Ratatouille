@@ -4,11 +4,14 @@ import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
 import dev.doctor4t.ratatouille.client.model.armor.TestArmorModelDefinition;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
-import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
-import dev.doctor4t.ratatouille.client.util.ItemSetDisplayConditions;
+import dev.doctor4t.ratatouille.client.util.ambience.Ambience;
+import dev.doctor4t.ratatouille.client.util.ambience.AmbienceManager;
+import dev.doctor4t.ratatouille.client.util.armor.CustomModelArmorUtil;
+import dev.doctor4t.ratatouille.client.util.armor.ItemSetDisplayConditions;
 import dev.doctor4t.ratatouille.index.RatatouilleBlockEntities;
 import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import dev.doctor4t.ratatouille.index.RatatouilleItems;
+import dev.doctor4t.ratatouille.index.RatatouilleSounds;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
@@ -23,12 +26,17 @@ import net.minecraft.util.TypedActionResult;
 public class RatatouilleClient implements ClientModInitializer {
     private static boolean openCosmeticsScreen;
 
-
+    public static final AmbienceManager AMBIENCE_MANAGER = new AmbienceManager();
 
     @Override
     public void onInitializeClient() {
         // Initialize the render handler
 //        RenderHandler.initialize();
+
+        // Initialize ambience manager
+        AMBIENCE_MANAGER.registerEvents();
+
+        AmbienceManager.registerAmbience(new Ambience(RatatouilleSounds.AMBIENT_SHIP, player -> FabricLoader.getInstance().isDevelopmentEnvironment() && player.getMainHandStack().isOf(RatatouilleBlocks.MAUVE_PLUSH.asItem()), 20));
 
         // Register test custom armor
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {

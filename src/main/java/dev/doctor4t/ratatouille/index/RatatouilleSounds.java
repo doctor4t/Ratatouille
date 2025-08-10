@@ -17,6 +17,8 @@ public interface RatatouilleSounds {
     SoundEvent BLOCK_FOLLY_PLUSH_HONK = create("block.folly_plush.honk");
     SoundEvent BLOCK_MAUVE_PLUSH_HONK = create("block.mauve_plush.honk");
 
+    SoundEvent AMBIENT_SHIP = create("ambient.ship");
+
     static SoundEvent create(String name) {
         SoundEvent soundEvent = SoundEvent.of(Ratatouille.id(name));
         SOUND_EVENTS.add(soundEvent);

@@ -1,8 +1,8 @@
 package dev.doctor4t.ratatouille.client.render.feature;
 
 import dev.doctor4t.ratatouille.client.model.armor.CustomBipedArmorModel;
-import dev.doctor4t.ratatouille.client.util.ArmorDisplayConditions;
-import dev.doctor4t.ratatouille.client.util.CustomModelArmorUtil;
+import dev.doctor4t.ratatouille.client.util.armor.ArmorDisplayConditions;
+import dev.doctor4t.ratatouille.client.util.armor.CustomModelArmorUtil;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
