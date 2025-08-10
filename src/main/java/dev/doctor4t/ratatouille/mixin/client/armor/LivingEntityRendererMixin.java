@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.mixin.client.armor;
 
 import dev.doctor4t.ratatouille.client.render.feature.RendersArmInFirstPerson;
-import dev.doctor4t.ratatouille.client.render.feature.RootCustomBipedArmorFeatureRenderer;
+import dev.doctor4t.ratatouille.client.render.feature.MasterCustomBipedArmorFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
@@ -46,7 +46,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
     @Inject(method = "<init>", at = @At("TAIL"))
     private void ratatouille$registerCustomBipedArmorFeatureRenderer(EntityRendererFactory.Context ctx, EntityModel model, float shadowRadius, CallbackInfo ci) {
         if (model instanceof BipedEntityModel<?>) {
-            this.addFeature(new RootCustomBipedArmorFeatureRenderer(this, ctx));
+            this.addFeature(new MasterCustomBipedArmorFeatureRenderer(this, ctx));
         }
     }
 }

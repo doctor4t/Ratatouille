@@ -21,10 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @SuppressWarnings("unchecked")
-public class RootCustomBipedArmorFeatureRenderer<T extends LivingEntity, M extends BipedEntityModel<T>> extends FeatureRenderer<T, M> implements RendersArmInFirstPerson<T> {
+public class MasterCustomBipedArmorFeatureRenderer<T extends LivingEntity, M extends BipedEntityModel<T>> extends FeatureRenderer<T, M> implements RendersArmInFirstPerson<T> {
     public final Map<ArmorDisplayConditions, CustomBipedArmorModel<LivingEntity>> customArmorModels;
 
-    public RootCustomBipedArmorFeatureRenderer(FeatureRendererContext<T, M> context, EntityRendererFactory.Context loader) {
+    public MasterCustomBipedArmorFeatureRenderer(FeatureRendererContext<T, M> context, EntityRendererFactory.Context loader) {
         super(context);
 
         this.customArmorModels = new HashMap<>();

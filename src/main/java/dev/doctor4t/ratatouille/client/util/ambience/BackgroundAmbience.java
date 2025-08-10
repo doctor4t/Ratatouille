@@ -7,19 +7,19 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import org.jetbrains.annotations.Nullable;
 
-public class Ambience {
+public class BackgroundAmbience {
     // Exclusive ambiences are iterated through in order, wherein the first with a true predicate is selected.
     private final PlayPredicate predicate;
     private final SoundFactory factory;
     @Nullable
     private SoundInstance soundInstance;
 
-    public Ambience(SoundEvent soundEvent, PlayPredicate predicate, int fadeTime) {
+    public BackgroundAmbience(SoundEvent soundEvent, PlayPredicate predicate, int fadeTime) {
         this(soundEvent, SoundCategory.AMBIENT, predicate, fadeTime, fadeTime);
     }
 
-    Ambience(SoundEvent soundEvent, SoundCategory soundCategory, PlayPredicate predicate, int fadeIn, int fadeOut) {
-        this.factory = player -> new MasterAmbientLoop(player, soundEvent, soundCategory, predicate, fadeIn, fadeOut);
+    BackgroundAmbience(SoundEvent soundEvent, SoundCategory soundCategory, PlayPredicate predicate, int fadeIn, int fadeOut) {
+        this.factory = player -> new BackgroundAmbientLoop(player, soundEvent, soundCategory, predicate, fadeIn, fadeOut);
         this.predicate = predicate;
     }
 
