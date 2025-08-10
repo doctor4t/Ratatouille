@@ -39,7 +39,7 @@ public class BlockEntityAmbientLoop extends MovingSoundInstance {
 
     @Override
     public void tick() {
-        if (!this.blockEntity.isRemoved() && this.transitionTimer >= 0) {
+        if (!this.blockEntity.isRemoved()) {
             int fadeTime;
 
             if (this.playPredicate.shouldPlay(this.blockEntity)) {
@@ -52,6 +52,8 @@ public class BlockEntityAmbientLoop extends MovingSoundInstance {
 
             this.transitionTimer = Math.min(this.transitionTimer, fadeTime);
             this.volume = Math.max(0.0F, Math.min((float) this.transitionTimer / (float) fadeTime, 1.0F));
+        } else {
+            this.setDone();
         }
     }
 }

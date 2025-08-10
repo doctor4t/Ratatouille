@@ -23,6 +23,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.TypedActionResult;
 
 public class RatatouilleClient implements ClientModInitializer {
@@ -89,7 +90,7 @@ public class RatatouilleClient implements ClientModInitializer {
         // Ambience util
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             AmbienceUtil.registerBackgroundAmbience(new BackgroundAmbience(RatatouilleSounds.AMBIENT_SHIP, player -> player.getMainHandStack().isOf(RatatouilleBlocks.MAUVE_PLUSH.asItem()), 20));
-            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(RatatouilleSounds.AMBIENT_SHIP, blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
+            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(SoundEvents.BLOCK_BEACON_AMBIENT,blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
         }
     }
 }
