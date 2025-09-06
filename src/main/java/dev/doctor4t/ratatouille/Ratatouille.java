@@ -30,8 +30,8 @@ public class Ratatouille implements ModInitializer {
     @Override
     public void onInitialize() {
         RatatouilleBlocks.initialize();
-        RatatouilleBlockEntities.initialize();
         RatatouilleItems.initialize();
+        RatatouilleBlockEntities.initialize();
         RatatouilleSounds.initialize();
     }
 

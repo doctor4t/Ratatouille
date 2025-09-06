@@ -1,56 +1,33 @@
 package dev.doctor4t.ratatouille.index;
 
 import dev.doctor4t.ratatouille.Ratatouille;
+import dev.doctor4t.ratatouille.util.registrar.ItemRegistrar;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.*;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.function.Consumer;
 
 public interface RatatouilleItems {
-    Map<Item, Identifier> ITEMS = new LinkedHashMap<>();
+    ItemRegistrar index = new ItemRegistrar(Ratatouille.MOD_ID);
 
-    Item TEST_ARMOR_HELMET = createDevExclusive(
+    Item TEST_ARMOR_HELMET = index.createDevExclusive(
             "test_armor_helmet",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_CHESTPLATE = createDevExclusive(
+    Item TEST_ARMOR_CHESTPLATE = index.createDevExclusive(
             "test_armor_chestplate",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_LEGGINGS = createDevExclusive(
+    Item TEST_ARMOR_LEGGINGS = index.createDevExclusive(
             "test_armor_leggings",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_BOOTS = createDevExclusive(
+    Item TEST_ARMOR_BOOTS = index.createDevExclusive(
             "test_armor_boots",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37000)))
     );
 
-    static <T extends Item> T create(String name, T item) {
-        ITEMS.put(item, Ratatouille.id(name));
-
-        return item;
-    }
-
-    static <T extends Item> T createDevExclusive(String name, T item) {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            ITEMS.put(item, Ratatouille.id(name));
-            return item;
-        } else {
-            return null;
-        }
-    }
-
     static void initialize() {
-        ITEMS.forEach((item, id) -> Registry.register(Registries.ITEM, id, item));
+        index.initialize();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(RatatouilleItems::addFunctionalEntries);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(RatatouilleItems::addCombatEntries);

@@ -4,8 +4,8 @@ import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
 import dev.doctor4t.ratatouille.client.model.armor.TestArmorModelDefinition;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
-import dev.doctor4t.ratatouille.client.util.ambience.BackgroundAmbience;
 import dev.doctor4t.ratatouille.client.util.ambience.AmbienceUtil;
+import dev.doctor4t.ratatouille.client.util.ambience.BackgroundAmbience;
 import dev.doctor4t.ratatouille.client.util.ambience.BlockEntityAmbience;
 import dev.doctor4t.ratatouille.client.util.armor.CustomModelArmorUtil;
 import dev.doctor4t.ratatouille.client.util.armor.ItemSetDisplayConditions;
@@ -90,7 +90,7 @@ public class RatatouilleClient implements ClientModInitializer {
         // Ambience util
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             AmbienceUtil.registerBackgroundAmbience(new BackgroundAmbience(RatatouilleSounds.AMBIENT_SHIP, player -> player.getMainHandStack().isOf(RatatouilleBlocks.MAUVE_PLUSH.asItem()), 20));
-            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(SoundEvents.BLOCK_BEACON_AMBIENT,blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
+            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(SoundEvents.BLOCK_BEACON_AMBIENT, blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
         }
     }
 }
