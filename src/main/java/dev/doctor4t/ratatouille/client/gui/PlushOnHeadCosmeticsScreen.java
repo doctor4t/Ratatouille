@@ -2,7 +2,8 @@ package dev.doctor4t.ratatouille.client.gui;
 
 import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.lib.gui.CosmeticsScreen;
-import dev.doctor4t.ratatouille.util.PlushOnHeadCosmetics;
+import dev.doctor4t.ratatouille.supporter.PlushOnHeadCosmetics;
+import dev.doctor4t.ratatouille.supporter.SupporterUtils;
 import dev.doctor4t.ratatouille.util.TextUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.widget.CyclingButtonWidget;
@@ -12,7 +13,7 @@ public class PlushOnHeadCosmeticsScreen extends CosmeticsScreen<PlushOnHeadCosme
     public static final String TITLE = "options.plush_on_head_cosmetics";
 
     public PlushOnHeadCosmeticsScreen() {
-        super(Text.translatable(TITLE), new PlushOnHeadCosmeticsLocalData(), !Ratatouille.isSupporter(MinecraftClient.getInstance().player.getUuid()));
+        super(Text.translatable(TITLE), new PlushOnHeadCosmeticsLocalData(), !SupporterUtils.isSupporter(MinecraftClient.getInstance().player.getUuid()));
     }
 
     @Override

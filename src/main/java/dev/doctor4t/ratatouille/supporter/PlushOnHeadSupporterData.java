@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.util;
+package dev.doctor4t.ratatouille.supporter;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

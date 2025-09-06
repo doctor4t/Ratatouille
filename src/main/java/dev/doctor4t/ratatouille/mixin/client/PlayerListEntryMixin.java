@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.mixin.client;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import dev.doctor4t.ratatouille.util.SupporterUtils;
+import dev.doctor4t.ratatouille.supporter.SupporterUtils;
 import net.minecraft.client.gui.hud.PlayerListHud;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.text.Text;

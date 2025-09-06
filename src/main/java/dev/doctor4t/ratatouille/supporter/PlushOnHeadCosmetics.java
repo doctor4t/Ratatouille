@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.util;
+package dev.doctor4t.ratatouille.supporter;
 
 import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;

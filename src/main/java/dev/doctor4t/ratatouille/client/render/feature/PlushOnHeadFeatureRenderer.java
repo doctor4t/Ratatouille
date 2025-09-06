@@ -1,6 +1,6 @@
 package dev.doctor4t.ratatouille.client.render.feature;
 
-import dev.doctor4t.ratatouille.util.PlushOnHeadCosmetics;
+import dev.doctor4t.ratatouille.supporter.PlushOnHeadCosmetics;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.VertexConsumerProvider;

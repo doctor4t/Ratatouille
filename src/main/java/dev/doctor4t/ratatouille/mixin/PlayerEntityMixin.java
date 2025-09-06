@@ -3,7 +3,7 @@ package dev.doctor4t.ratatouille.mixin;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import dev.doctor4t.ratatouille.item.CustomHitParticleItem;
 import dev.doctor4t.ratatouille.item.CustomHitSoundItem;
-import dev.doctor4t.ratatouille.util.SupporterUtils;
+import dev.doctor4t.ratatouille.supporter.SupporterUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

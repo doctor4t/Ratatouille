@@ -2,8 +2,8 @@ package dev.doctor4t.ratatouille.client.gui;
 
 import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.lib.gui.CosmeticsLocalData;
-import dev.doctor4t.ratatouille.util.PlushOnHeadCosmetics;
-import dev.doctor4t.ratatouille.util.PlushOnHeadSupporterData;
+import dev.doctor4t.ratatouille.supporter.PlushOnHeadCosmetics;
+import dev.doctor4t.ratatouille.supporter.PlushOnHeadSupporterData;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.UUID;
