@@ -27,7 +27,7 @@ public interface RatatouilleItems {
     );
 
     static void initialize() {
-        index.initialize();
+        index.registerEntries();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(RatatouilleItems::addFunctionalEntries);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(RatatouilleItems::addCombatEntries);

@@ -14,6 +14,6 @@ public interface RatatouilleSounds {
     SoundEvent AMBIENT_SHIP = index.create("ambient.ship");
 
     static void initialize() {
-        index.initialize();
+        index.registerEntries();
     }
 }

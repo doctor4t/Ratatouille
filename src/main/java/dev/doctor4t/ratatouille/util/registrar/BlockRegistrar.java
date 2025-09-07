@@ -3,7 +3,9 @@ package dev.doctor4t.ratatouille.util.registrar;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 
 import java.util.function.Function;
 
@@ -28,9 +30,22 @@ public class BlockRegistrar extends Registrar<Block> {
         return (T) create(name, block);
     }
 
+    public <T extends Block> T createWithItem(String name, T block, RegistryKey<ItemGroup>... itemGroups) {
+        return createWithItem(name, block, b -> new BlockItem(b, new Item.Settings()), itemGroups);
+    }
+
+    public <T extends Block> T createWithItem(String name, T block, Item.Settings settings, RegistryKey<ItemGroup>... itemGroups) {
+        return createWithItem(name, block, b -> new BlockItem(b, settings), itemGroups);
+    }
+
+    public <T extends Block> T createWithItem(String name, T block, Function<T, BlockItem> itemGenerator, RegistryKey<ItemGroup>... itemGroups) {
+        itemRegistrar.create(name, itemGenerator.apply(block), itemGroups);
+        return (T) create(name, block);
+    }
+
     @Override
-    public void initialize() {
-        super.initialize();
-        itemRegistrar.initialize();
+    public void registerEntries() {
+        super.registerEntries();
+        itemRegistrar.registerEntries();
     }
 }

@@ -19,11 +19,10 @@ public abstract class Registrar<T> {
 
     public <M extends T> T create(String name, M object) {
         TO_REGISTER.put(object, Identifier.of(namespace, name));
-
         return object;
     }
 
-    public void initialize() {
+    public void registerEntries() {
         TO_REGISTER.forEach((object, id) -> Registry.register(registry, id, object));
     }
 

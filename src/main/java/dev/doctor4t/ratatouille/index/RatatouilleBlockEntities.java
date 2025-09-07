@@ -8,11 +8,10 @@ import net.minecraft.block.entity.BlockEntityType;
 public interface RatatouilleBlockEntities {
     BlockEntityTypeRegistrar index = new BlockEntityTypeRegistrar(Ratatouille.MOD_ID);
 
-    BlockEntityType<PlushBlockEntity> PLUSH = (BlockEntityType<PlushBlockEntity>) index.create("plush", BlockEntityType.Builder
-            .create(PlushBlockEntity::new, RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH)
-            .build());
+    BlockEntityType<PlushBlockEntity> PLUSH = index.create("plush", BlockEntityType.Builder
+            .create(PlushBlockEntity::new, RatatouilleBlocks.RAT_MAID_PLUSH, RatatouilleBlocks.FOLLY_PLUSH, RatatouilleBlocks.MAUVE_PLUSH));
 
     static void initialize() {
-        index.initialize();
+        index.registerEntries();
     }
 }

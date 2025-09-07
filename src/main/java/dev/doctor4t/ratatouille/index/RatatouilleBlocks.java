@@ -16,6 +16,6 @@ public interface RatatouilleBlocks {
     Block MAUVE_PLUSH = index.createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
 
     static void initialize() {
-        index.initialize();
+        index.registerEntries();
     }
 }
