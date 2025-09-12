@@ -5,6 +5,7 @@
   "mixins": [
     "NoteBlockMixin",
     "PlayerEntityMixin",
+    "client.optionlock.SliderWidgetMixin",
     "handover.ItemMixin",
     "handover.PlayerEntityMixin"
   ],
@@ -18,6 +19,8 @@
     "client.armor.ArmorFeatureRendererMixin",
     "client.armor.LivingEntityRendererMixin",
     "client.armor.PlayerEntityRendererMixin",
+    "client.optionlock.OptionWidgetEntryMixin",
+    "client.optionlock.SimpleOptionMixin",
     "client.render.EffectProgramMixin",
     "client.render.WorldRendererMixin"
   ]

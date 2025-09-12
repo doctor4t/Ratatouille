@@ -1,0 +1,28 @@
+package dev.doctor4t.ratatouille.client.util;
+
+import net.minecraft.client.option.SimpleOption;
+
+import java.util.HashMap;
+import java.util.Optional;
+
+public class OptionLocker {
+    public static final HashMap<String, Optional<?>> LOCKED_OPTIONS = new HashMap<>();
+
+    public static final HashMap<SimpleOption<?>, String> OPTIONS_KEYS = new HashMap<>();
+
+    public static <T> void overrideOption(String option, T value) {
+        LOCKED_OPTIONS.put("options." + option, Optional.of(value));
+    }
+
+    public static Optional<?> getOverriddenValueOf(String key) {
+        if (LOCKED_OPTIONS.containsKey(key)) {
+            return LOCKED_OPTIONS.get(key);
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    public static boolean isOptionLocked(SimpleOption<?> option) {
+        return LOCKED_OPTIONS.containsKey(OPTIONS_KEYS.get(option));
+    }
+}

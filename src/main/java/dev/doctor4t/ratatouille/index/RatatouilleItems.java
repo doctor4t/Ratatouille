@@ -4,24 +4,25 @@ import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.util.registrar.ItemRegistrar;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.*;
 
 public interface RatatouilleItems {
     ItemRegistrar index = new ItemRegistrar(Ratatouille.MOD_ID);
 
-    Item TEST_ARMOR_HELMET = index.createDevExclusive(
+    Item TEST_ARMOR_HELMET = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
             "test_armor_helmet",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_CHESTPLATE = index.createDevExclusive(
+    Item TEST_ARMOR_CHESTPLATE = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
             "test_armor_chestplate",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_LEGGINGS = index.createDevExclusive(
+    Item TEST_ARMOR_LEGGINGS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
             "test_armor_leggings",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_BOOTS = index.createDevExclusive(
+    Item TEST_ARMOR_BOOTS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
             "test_armor_boots",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37000)))
     );
@@ -40,10 +41,12 @@ public interface RatatouilleItems {
     }
 
     private static void addCombatEntries(FabricItemGroupEntries fabricItemGroupEntries) {
-        fabricItemGroupEntries.addAfter(Items.NETHERITE_BOOTS, TEST_ARMOR_HELMET);
-        fabricItemGroupEntries.addAfter(TEST_ARMOR_HELMET, TEST_ARMOR_CHESTPLATE);
-        fabricItemGroupEntries.addAfter(TEST_ARMOR_CHESTPLATE, TEST_ARMOR_LEGGINGS);
-        fabricItemGroupEntries.addAfter(TEST_ARMOR_LEGGINGS, TEST_ARMOR_BOOTS);
+        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
+            fabricItemGroupEntries.addAfter(Items.NETHERITE_BOOTS, TEST_ARMOR_HELMET);
+            fabricItemGroupEntries.addAfter(TEST_ARMOR_HELMET, TEST_ARMOR_CHESTPLATE);
+            fabricItemGroupEntries.addAfter(TEST_ARMOR_CHESTPLATE, TEST_ARMOR_LEGGINGS);
+            fabricItemGroupEntries.addAfter(TEST_ARMOR_LEGGINGS, TEST_ARMOR_BOOTS);
+        }
     }
 
 }

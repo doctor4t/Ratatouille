@@ -4,6 +4,7 @@ import dev.doctor4t.ratatouille.Ratatouille;
 import dev.doctor4t.ratatouille.client.gui.PlushOnHeadCosmeticsScreen;
 import dev.doctor4t.ratatouille.client.model.armor.TestArmorModelDefinition;
 import dev.doctor4t.ratatouille.client.render.entity.PlushBlockEntityRenderer;
+import dev.doctor4t.ratatouille.client.util.OptionLocker;
 import dev.doctor4t.ratatouille.client.util.ambience.AmbienceUtil;
 import dev.doctor4t.ratatouille.client.util.ambience.BackgroundAmbience;
 import dev.doctor4t.ratatouille.client.util.ambience.BlockEntityAmbience;
@@ -25,6 +26,8 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.TypedActionResult;
+
+import java.awt.desktop.SystemEventListener;
 
 public class RatatouilleClient implements ClientModInitializer {
     private static boolean openCosmeticsScreen;
@@ -69,6 +72,7 @@ public class RatatouilleClient implements ClientModInitializer {
             }
         });
 
+        OptionLocker.overrideOption("gamma", 0d);
     }
 
     private static void registerTestFeatures() {

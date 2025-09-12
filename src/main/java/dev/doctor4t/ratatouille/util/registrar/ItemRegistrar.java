@@ -34,22 +34,6 @@ public class ItemRegistrar extends Registrar<Item> {
         return create(name, item);
     }
 
-    public Item createDevExclusive(String name, Item item) {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            return create(name, item);
-        } else {
-            return null;
-        }
-    }
-
-    public Item createDevExclusive(String name, Item item, RegistryKey<ItemGroup>... groups) {
-        if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-            return create(name, item, groups);
-        } else {
-            return null;
-        }
-    }
-
     @Override
     public void registerEntries() {
         super.registerEntries();
