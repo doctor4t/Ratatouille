@@ -71,8 +71,6 @@ public class RatatouilleClient implements ClientModInitializer {
                 openCosmeticsScreen = false;
             }
         });
-
-        OptionLocker.overrideOption("gamma", 0d);
     }
 
     private static void registerTestFeatures() {
