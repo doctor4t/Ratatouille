@@ -2,13 +2,19 @@ package dev.doctor4t.ratatouille.mixin.client.optionlock;
 
 import com.mojang.serialization.Codec;
 import dev.doctor4t.ratatouille.client.util.OptionLocker;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.option.SimpleOption;
+import net.minecraft.text.Text;
+import org.slf4j.Logger;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -23,5 +29,15 @@ public class SimpleOptionMixin<T> {
 
         Optional<?> overriddenValue = OptionLocker.getOverriddenValueOf(key);
         overriddenValue.ifPresent(o -> this.value = (T) o);
+    }
+
+    @ModifyVariable(method = "setValue", at = @At("HEAD"), argsOnly = true)
+    public T ratatouille$overrideValue(T value) {
+        Optional<?> overriddenValue = OptionLocker.getOverriddenValueOf(OptionLocker.OPTIONS_KEYS.get((SimpleOption<?>) (Object) this));
+        if (overriddenValue.isPresent()) {
+            return (T) overriddenValue.get();
+        } else {
+            return value;
+        }
     }
 }

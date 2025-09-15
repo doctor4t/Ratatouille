@@ -1,6 +1,7 @@
 package dev.doctor4t.ratatouille.client.util;
 
 import net.minecraft.client.option.SimpleOption;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -10,7 +11,7 @@ public class OptionLocker {
 
     public static final HashMap<SimpleOption<?>, String> OPTIONS_KEYS = new HashMap<>();
 
-    public static <T> void overrideOption(String option, T value) {
+    public static <T> void overrideOption(@NotNull String option, @NotNull T value) {
         LOCKED_OPTIONS.put("options." + option, Optional.of(value));
     }
 
