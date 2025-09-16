@@ -19,7 +19,7 @@ public class OptionLocker {
         override("options." + option, value);
     }
 
-    public static <T> void overrideSoundCategoryVolume(@NotNull String option, float value) {
+    public static <T> void overrideSoundCategoryVolume(@NotNull String option, double value) {
         override("soundCategory." + option, value);
     }
 
