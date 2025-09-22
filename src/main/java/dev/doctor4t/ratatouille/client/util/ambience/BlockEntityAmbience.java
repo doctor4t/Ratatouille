@@ -15,12 +15,12 @@ public class BlockEntityAmbience {
     @Nullable
     private MovingSoundInstance soundInstance;
 
-    public BlockEntityAmbience(SoundEvent soundEvent, PlayPredicate predicate, int fadeTime) {
-        this(soundEvent, SoundCategory.BLOCKS, predicate, fadeTime, fadeTime);
+    public BlockEntityAmbience(SoundEvent soundEvent, float volume, PlayPredicate predicate, int fadeTime) {
+        this(soundEvent, SoundCategory.BLOCKS, volume, predicate, fadeTime, fadeTime);
     }
 
-    BlockEntityAmbience(SoundEvent soundEvent, SoundCategory soundCategory, PlayPredicate predicate, int fadeIn, int fadeOut) {
-        this.factory = blockEntity -> new BlockEntityAmbientLoop(blockEntity, soundEvent, soundCategory, predicate, fadeIn, fadeOut);
+    BlockEntityAmbience(SoundEvent soundEvent, SoundCategory soundCategory, float volume, PlayPredicate predicate, int fadeIn, int fadeOut) {
+        this.factory = blockEntity -> new BlockEntityAmbientLoop(blockEntity, soundEvent, soundCategory, volume, predicate, fadeIn, fadeOut);
     }
 
     @FunctionalInterface

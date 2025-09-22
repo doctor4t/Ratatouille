@@ -11,9 +11,11 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.client.sound.MovingSoundInstance;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.client.world.ClientWorld;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class AmbienceUtil implements
 
     private static final List<BackgroundAmbience> BACKGROUND_AMBIENCES = new ObjectArrayList<>();
     private static final HashMap<BlockEntityType<? extends BlockEntity>, BlockEntityAmbience> BLOCK_ENTITY_AMBIENCES = new HashMap<>();
+    private static final List<MovingSoundInstance> BLOCK_ENTITY_AMBIENCE_QUEUE = new ArrayList<>();
 
 	public static void registerBackgroundAmbience(BackgroundAmbience backgroundAmbience) {
 		BACKGROUND_AMBIENCES.add(backgroundAmbience);
@@ -55,15 +58,20 @@ public class AmbienceUtil implements
         for (BackgroundAmbience backgroundAmbience : BACKGROUND_AMBIENCES) {
             backgroundAmbience.tryStarting(player, soundManager);
         }
+
+        // start sounds for block entities
+        for (MovingSoundInstance movingSoundInstance : BLOCK_ENTITY_AMBIENCE_QUEUE) {
+            if (!soundManager.isPlaying(movingSoundInstance)) {
+                soundManager.play(movingSoundInstance);
+            }
+        }
     }
 
     @Override
     public void onLoad(BlockEntity blockEntity, ClientWorld world) {
-        SoundManager soundManager = MinecraftClient.getInstance().getSoundManager();
-
         BlockEntityAmbience ambience = BLOCK_ENTITY_AMBIENCES.get(blockEntity.getType());
         if (ambience != null) {
-            soundManager.playNextTick(ambience.factory.create(blockEntity));
+            BLOCK_ENTITY_AMBIENCE_QUEUE.add(ambience.factory.create(blockEntity));
         }
     }
 

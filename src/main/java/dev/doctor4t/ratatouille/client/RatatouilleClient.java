@@ -92,7 +92,7 @@ public class RatatouilleClient implements ClientModInitializer {
         // Ambience util
         if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
             AmbienceUtil.registerBackgroundAmbience(new BackgroundAmbience(RatatouilleSounds.AMBIENT_SHIP, player -> player.getMainHandStack().isOf(RatatouilleBlocks.MAUVE_PLUSH.asItem()), 20));
-            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(SoundEvents.BLOCK_BEACON_AMBIENT, blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
+            AmbienceUtil.registerBlockEntityAmbience(RatatouilleBlockEntities.PLUSH, new BlockEntityAmbience(SoundEvents.BLOCK_BEACON_AMBIENT, 1.0f, blockEntity -> blockEntity.getWorld().getBlockState(blockEntity.getPos().down()).isOf(Blocks.REDSTONE_BLOCK), 20));
         }
     }
 }
