@@ -8,27 +8,27 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.*;
 
 public interface RatatouilleItems {
-    ItemRegistrar index = new ItemRegistrar(Ratatouille.MOD_ID);
+    ItemRegistrar registrar = new ItemRegistrar(Ratatouille.MOD_ID);
 
-    Item TEST_ARMOR_HELMET = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
+    Item TEST_ARMOR_HELMET = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : registrar.create(
             "test_armor_helmet",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_CHESTPLATE = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
+    Item TEST_ARMOR_CHESTPLATE = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : registrar.create(
             "test_armor_chestplate",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_LEGGINGS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
+    Item TEST_ARMOR_LEGGINGS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : registrar.create(
             "test_armor_leggings",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(37000)))
     );
-    Item TEST_ARMOR_BOOTS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : index.create(
+    Item TEST_ARMOR_BOOTS = !FabricLoader.getInstance().isDevelopmentEnvironment() ? null : registrar.create(
             "test_armor_boots",
             new ArmorItem(ArmorMaterials.ARMADILLO, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(37000)))
     );
 
     static void initialize() {
-        index.registerEntries();
+        registrar.registerEntries();
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(RatatouilleItems::addFunctionalEntries);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(RatatouilleItems::addCombatEntries);

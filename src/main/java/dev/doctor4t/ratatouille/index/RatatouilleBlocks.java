@@ -8,14 +8,14 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 
 public interface RatatouilleBlocks {
-    BlockRegistrar index = new BlockRegistrar(Ratatouille.MOD_ID);
+    BlockRegistrar registrar = new BlockRegistrar(Ratatouille.MOD_ID);
 
     // Plush
-    Block RAT_MAID_PLUSH = index.createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
-    Block FOLLY_PLUSH = index.createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
-    Block MAUVE_PLUSH = index.createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
+    Block RAT_MAID_PLUSH = registrar.createWithItem("rat_maid_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.GRAY_WOOL).nonOpaque()));
+    Block FOLLY_PLUSH = registrar.createWithItem("folly_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.WHITE_WOOL).nonOpaque()));
+    Block MAUVE_PLUSH = registrar.createWithItem("mauve_plush", new PlushBlock(AbstractBlock.Settings.copy(Blocks.MAGENTA_WOOL).nonOpaque()));
 
     static void initialize() {
-        index.registerEntries();
+        registrar.registerEntries();
     }
 }

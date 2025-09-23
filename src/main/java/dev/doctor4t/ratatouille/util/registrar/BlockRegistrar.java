@@ -1,11 +1,14 @@
 package dev.doctor4t.ratatouille.util.registrar;
 
+import dev.doctor4t.ratatouille.util.TextUtils;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryWrapper;
 
 import java.util.function.Function;
 
@@ -47,5 +50,10 @@ public class BlockRegistrar extends Registrar<Block> {
     public void registerEntries() {
         super.registerEntries();
         itemRegistrar.registerEntries();
+    }
+
+    @Override
+    public void generateLang(RegistryWrapper.WrapperLookup wrapperLookup, FabricLanguageProvider.TranslationBuilder builder) {
+        TO_REGISTER.forEach((t, identifier) -> builder.add(t, TextUtils.formatValueString(identifier.getPath())));
     }
 }

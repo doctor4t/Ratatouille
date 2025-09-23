@@ -1,6 +1,9 @@
 package dev.doctor4t.ratatouille.util.registrar;
 
+import dev.doctor4t.ratatouille.util.TextUtils;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 
 import java.util.LinkedHashMap;
@@ -26,4 +29,9 @@ public abstract class Registrar<T> {
         TO_REGISTER.forEach((object, id) -> Registry.register(registry, id, object));
     }
 
+    public void generateLang(RegistryWrapper.WrapperLookup wrapperLookup, FabricLanguageProvider.TranslationBuilder builder) {
+        TO_REGISTER.forEach((t, identifier) -> {
+            builder.add(identifier, TextUtils.formatValueString(identifier.getPath()));
+        });
+    }
 }
