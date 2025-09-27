@@ -1,6 +1,9 @@
 package dev.doctor4t.ratatouille.util;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,5 +44,9 @@ public abstract class TextUtils {
             ret.addAll(Text.literal(string).getWithStyle(text.getStyle()));
         }
         return ret;
+    }
+
+    private static List<Text> getTooltipForItem(Item item) {
+        return TextUtils.getWithLineBreaks(Text.translatable("item." + item.getTranslationKey().replace(":", ".") + ".tooltip"));
     }
 }
