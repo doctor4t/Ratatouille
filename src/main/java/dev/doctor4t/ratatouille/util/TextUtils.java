@@ -2,6 +2,7 @@ package dev.doctor4t.ratatouille.util;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
 
@@ -47,6 +48,10 @@ public abstract class TextUtils {
     }
 
     public static List<Text> getTooltipForItem(Item item) {
-        return TextUtils.getWithLineBreaks(Text.translatable("item." + item.getTranslationKey().replace(":", ".") + ".tooltip"));
+        return getTooltipForItem(item, Style.EMPTY);
+    }
+
+    public static List<Text> getTooltipForItem(Item item, Style style) {
+        return TextUtils.getWithLineBreaks(Text.translatable("item." + item.getTranslationKey().replace(":", ".") + ".tooltip").setStyle(style));
     }
 }
