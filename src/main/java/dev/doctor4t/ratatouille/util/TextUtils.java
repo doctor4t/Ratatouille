@@ -1,5 +1,10 @@
 package dev.doctor4t.ratatouille.util;
 
+import net.minecraft.text.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class TextUtils {
     public static String formatValueString(String text) {
         if (text == null || text.isEmpty()) {
@@ -26,5 +31,15 @@ public abstract class TextUtils {
         }
 
         return converted.toString();
+    }
+
+    public static List<Text> getWithLineBreaks(Text text) {
+        List<Text> ret = new ArrayList<>();
+
+        String[] strings = text.getString().split("\n");
+        for (String string : strings) {
+            ret.addAll(Text.literal(string).getWithStyle(text.getStyle()));
+        }
+        return ret;
     }
 }
