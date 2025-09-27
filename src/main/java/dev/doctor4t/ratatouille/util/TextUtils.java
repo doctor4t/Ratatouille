@@ -46,7 +46,7 @@ public abstract class TextUtils {
         return ret;
     }
 
-    private static List<Text> getTooltipForItem(Item item) {
+    public static List<Text> getTooltipForItem(Item item) {
         return TextUtils.getWithLineBreaks(Text.translatable("item." + item.getTranslationKey().replace(":", ".") + ".tooltip"));
     }
 }
