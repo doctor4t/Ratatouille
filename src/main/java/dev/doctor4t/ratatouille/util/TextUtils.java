@@ -47,11 +47,15 @@ public abstract class TextUtils {
         return ret;
     }
 
+    public static String getItemTranslationKey(Item item) {
+        return item.getTranslationKey().replace(":", ".");
+    }
+
     public static List<Text> getTooltipForItem(Item item) {
         return getTooltipForItem(item, Style.EMPTY);
     }
 
     public static List<Text> getTooltipForItem(Item item, Style style) {
-        return TextUtils.getWithLineBreaks(Text.translatable("item." + item.getTranslationKey().replace(":", ".") + ".tooltip").setStyle(style));
+        return TextUtils.getWithLineBreaks(Text.translatable(getItemTranslationKey(item) + ".tooltip").setStyle(style));
     }
 }
