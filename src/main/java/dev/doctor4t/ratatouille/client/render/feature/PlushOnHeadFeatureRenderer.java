@@ -3,12 +3,15 @@ package dev.doctor4t.ratatouille.client.render.feature;
 import dev.doctor4t.ratatouille.supporter.PlushOnHeadCosmetics;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.ModelWithHead;
 import net.minecraft.client.render.item.HeldItemRenderer;
+import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
@@ -17,11 +20,11 @@ import net.minecraft.util.math.RotationAxis;
 
 @Environment(EnvType.CLIENT)
 public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends EntityModel<T> & ModelWithHead> extends FeatureRenderer<T, M> {
-    private final HeldItemRenderer heldItemRenderer;
+    private final ItemRenderer itemRenderer;
 
-    public PlushOnHeadFeatureRenderer(FeatureRendererContext<T, M> context, HeldItemRenderer heldItemRenderer) {
+    public PlushOnHeadFeatureRenderer(FeatureRendererContext<T, M> context, ItemRenderer itemRenderer) {
         super(context);
-        this.heldItemRenderer = heldItemRenderer;
+        this.itemRenderer = itemRenderer;
     }
 
     @Override
@@ -39,7 +42,9 @@ public class PlushOnHeadFeatureRenderer<T extends LivingEntity, M extends Entity
                 float scale = 0.625F;
                 matrices.scale(scale, -scale, -scale);
 
-                this.heldItemRenderer.renderItem(livingEntity, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, i);
+                this.itemRenderer.renderItem(livingEntity, plush.item.getDefaultStack(), ModelTransformationMode.HEAD, false, matrices, vertexConsumerProvider, player.getWorld(), i,
+                        LivingEntityRenderer.getOverlay(livingEntity, 0.0F),
+                        livingEntity.getId());
                 matrices.pop();
             }
         }
