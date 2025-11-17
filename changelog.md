@@ -1,4 +1,12 @@
 ------------------------------------------------------
+Ratatouille 1.4 - 1.21.1
+------------------------------------------------------
+- Added a registrar util to streamline blocks, items, entity types, sound events, etc... registering
+- Added an option locker util
+- Added text utils
+- Fixed plushies using a hand item renderer instead of a simple item renderer
+
+------------------------------------------------------
 Ratatouille 1.3 - 1.21.1
 ------------------------------------------------------
 - Added an ambience util: can be used to register background ambiences or block entity dependant ambiences
