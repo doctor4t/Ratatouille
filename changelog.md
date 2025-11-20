@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.4.1 - 1.21.1
+------------------------------------------------------
+- Fixed cosmetics screen being blurry and player preview being wrong
+
+------------------------------------------------------
 Ratatouille 1.4 - 1.21.1
 ------------------------------------------------------
 - Added a registrar util to streamline blocks, items, entity types, sound events, etc... registering

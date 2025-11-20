@@ -45,15 +45,23 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context, mouseX, mouseY, delta);
-        context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight());
+        super.render(context, mouseX, mouseY, delta);
         if (this.player != null) {
-            // todo this just needs to be experimentally ported visually, not hard
-            drawEntity(context, this.x + 26, this.y + 8, this.x + 75, this.y + 78, 30, 0.0625F, mouseX, mouseY, this.client.player);
+            int offsetX = 9;
+            int offsetY = 25;
+            int sizeX = 60;
+            int sizeY = 106;
+
+            drawEntity(context, this.x + offsetX, this.y + offsetY, this.x + offsetX + sizeX, this.y + offsetY + sizeY, 40, 0.0625F, mouseX, mouseY, this.client.player);
 //            drawEntity(context, this.x + 39, this.y + 123, 46, 30, 0.0625F, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
         }
         context.drawText(this.textRenderer, this.title, this.width / 2 - this.textRenderer.getWidth(this.title) / 2, this.y + 7, 4210752, false);
-        super.render(context, mouseX, mouseY, delta);
+    }
+
+    @Override
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.renderBackground(context, mouseX, mouseY, delta);
+        context.drawTexture(CosmeticsScreenUVs.GUI_TEXTURE, this.x, this.y, 0, 0, CosmeticsScreenUVs.BACKGROUND.getWidth(), CosmeticsScreenUVs.BACKGROUND.getHeight());
     }
 
     private static class ExitButtonWidget extends PressableWidget {
