@@ -48,9 +48,9 @@ public abstract class CosmeticsScreen<T extends CosmeticsLocalData> extends Scre
         super.render(context, mouseX, mouseY, delta);
         if (this.player != null) {
             int offsetX = 9;
-            int offsetY = 25;
+            int offsetY = 20;
             int sizeX = 60;
-            int sizeY = 106;
+            int sizeY = 126;
 
             drawEntity(context, this.x + offsetX, this.y + offsetY, this.x + offsetX + sizeX, this.y + offsetY + sizeY, 40, 0.0625F, mouseX, mouseY, this.client.player);
 //            drawEntity(context, this.x + 39, this.y + 123, 46, 30, 0.0625F, (float) ((this.x + 39) - mouseX) / 10f, (float) ((this.y + 46) - mouseY) / 10f, this.player);
