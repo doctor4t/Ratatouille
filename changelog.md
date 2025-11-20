@@ -2,6 +2,7 @@
 Ratatouille 1.4.1 - 1.21.1
 ------------------------------------------------------
 - Fixed cosmetics screen being blurry and player preview being wrong
+- Fixed a disconnect that would happen when changing plush cosmetics on a server
 
 ------------------------------------------------------
 Ratatouille 1.4 - 1.21.1
