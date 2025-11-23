@@ -29,6 +29,10 @@ public abstract class Registrar<T> {
         TO_REGISTER.forEach((object, id) -> Registry.register(registry, id, object));
     }
 
+    public Map<T, Identifier> getEntriesToRegister() {
+        return TO_REGISTER;
+    }
+
     public void generateLang(RegistryWrapper.WrapperLookup wrapperLookup, FabricLanguageProvider.TranslationBuilder builder) {
         TO_REGISTER.forEach((t, identifier) -> {
             builder.add(identifier, TextUtils.formatValueString(identifier.getPath()));
