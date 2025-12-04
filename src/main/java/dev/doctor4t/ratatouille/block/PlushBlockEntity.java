@@ -9,6 +9,8 @@ import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
@@ -39,13 +41,13 @@ public class PlushBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        nbt.putDouble("squash", this.squash);
+    protected void writeData(WriteView view) {
+        view.putDouble("squash", this.squash);
     }
 
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
-        this.squash = nbt.getDouble("squash");
+    protected void readData(ReadView view) {
+        this.squash = view.getDouble("squash", 0f);
     }
 
     @Override

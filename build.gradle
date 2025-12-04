@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.13-SNAPSHOT'
+	id 'fabric-loom' version "${loom_version}"
 	id "io.github.ladysnake.chenille" version "0.14.0"
 }
 
@@ -56,7 +56,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	// Libraries
-	modIncludeImplementation "dev.upcraft.datasync:datasync-minecraft-${project.minecraft_version}-fabric:${project.datasync_version}"
+	modIncludeImplementation "dev.upcraft.datasync:datasync-minecraft-1.21.9-fabric:${project.datasync_version}"
 
 	// Runtime mods
 	modLocalImplementation "com.terraformersmc:modmenu:${mod_menu_version}"

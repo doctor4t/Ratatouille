@@ -6,12 +6,14 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.command.OrderedRenderCommandQueue;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -25,16 +27,13 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
         super(ctx);
     }
 
-    @Shadow
-    protected abstract void setModelPose(AbstractClientPlayerEntity player);
-
     @Inject(method = "renderRightArm", at = @At(value = "HEAD"))
-    public void hadopelagic$renderArmorRightArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, CallbackInfo ci) {
+    public void ratatouille$renderArmorRightArm(MatrixStack matrices, OrderedRenderCommandQueue queue, int light, Identifier skinTexture, boolean sleeveVisible, CallbackInfo ci) {
         renderArmorArm(matrices, vertexConsumers, light, player, true);
     }
 
     @Inject(method = "renderLeftArm", at = @At(value = "HEAD"))
-    public void hadopelagic$renderArmorLeftArm(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, AbstractClientPlayerEntity player, CallbackInfo ci) {
+    public void ratatouille$renderArmorLeftArm(MatrixStack matrices, OrderedRenderCommandQueue queue, int light, Identifier skinTexture, boolean sleeveVisible, CallbackInfo ci) {
         renderArmorArm(matrices, vertexConsumers, light, player, false);
     }
 

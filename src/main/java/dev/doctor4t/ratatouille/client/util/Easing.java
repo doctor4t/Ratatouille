@@ -1,4 +1,4 @@
-package dev.doctor4t.ratatouille.client.lib.render.helpers;
+package dev.doctor4t.ratatouille.client.util;
 
 import java.util.HashMap;
 
