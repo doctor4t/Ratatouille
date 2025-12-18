@@ -20,6 +20,10 @@ public class BlockRegistrar extends Registrar<Block> {
         itemRegistrar = new ItemRegistrar(namespace);
     }
 
+    public ItemRegistrar getItemRegistrar() {
+        return itemRegistrar;
+    }
+
     public <T extends Block> T createWithItem(String name, T block) {
         return createWithItem(name, block, new Item.Settings());
     }
