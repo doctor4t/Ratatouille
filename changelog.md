@@ -1,4 +1,9 @@
 ------------------------------------------------------
+Ratatouille 1.4.2 - 1.21.1
+------------------------------------------------------
+- Added getEntriesToRegister() method to registrars
+
+------------------------------------------------------
 Ratatouille 1.4.1 - 1.21.1
 ------------------------------------------------------
 - Fixed cosmetics screen being blurry and player preview being wrong

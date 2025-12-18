@@ -1,7 +1,7 @@
 package dev.doctor4t.ratatouille.mixin.client.armor;
 
-import dev.doctor4t.ratatouille.client.render.feature.RendersArmInFirstPerson;
 import dev.doctor4t.ratatouille.client.render.feature.MasterCustomBipedArmorFeatureRenderer;
+import dev.doctor4t.ratatouille.client.render.feature.RendersArmInFirstPerson;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.LivingEntityRenderer;

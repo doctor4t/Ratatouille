@@ -21,7 +21,7 @@
 //import java.util.List;
 //import java.util.function.Consumer;
 //
-///*
+/// *
 //    Original mixin based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
 // */
 //@Mixin(GameRenderer.class)

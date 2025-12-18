@@ -14,7 +14,7 @@
 //
 //import java.util.HashMap;
 //
-///*
+/// *
 //    Original class based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
 // */
 //public class RenderHandler {

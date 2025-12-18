@@ -296,7 +296,7 @@ public abstract class Easing {
         EASINGS.put(name, this);
     }
 
-    /////////// BACK EASING: overshooting cubic easing: (s+1)*t^3 - s*t^2  //////////////
+    /// //////// BACK EASING: overshooting cubic easing: (s+1)*t^3 - s*t^2  //////////////
 
     public static Easing valueOf(String name) {
         return EASINGS.get(name);

@@ -3,15 +3,12 @@ package dev.doctor4t.ratatouille.util.registrar;
 import dev.doctor4t.ratatouille.util.TextUtils;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;

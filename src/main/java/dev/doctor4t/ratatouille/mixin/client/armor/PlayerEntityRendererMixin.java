@@ -46,7 +46,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRendererMixi
 
                 // Features don't render unless the player is rendered, so we are just forcing the rendering here but scaling it by zero to make it invisible
                 matrices.push();
-                matrices.scale(0,0,0);
+                matrices.scale(0, 0, 0);
                 featureRenderer.render(matrices, vertexConsumers, light, player, 0, 0, 0, 0, 0, 0);
                 matrices.pop();
 

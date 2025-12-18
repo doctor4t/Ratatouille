@@ -5,7 +5,7 @@
 //import net.minecraft.util.math.Vec2f;
 //import org.joml.Vector4f;
 //
-///*
+/// *
 //    Original class based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
 // */
 //public class TrailPoint {

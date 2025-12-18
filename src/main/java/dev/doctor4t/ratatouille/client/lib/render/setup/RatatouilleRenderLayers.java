@@ -20,7 +20,7 @@
 //
 //import static net.minecraft.client.render.VertexFormats.*;
 //
-///*
+/// *
 //    Original class based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
 // */
 //public class RatatouilleRenderLayers extends RenderPhase {

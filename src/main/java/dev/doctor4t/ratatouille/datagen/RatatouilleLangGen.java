@@ -4,14 +4,8 @@ import dev.doctor4t.ratatouille.index.RatatouilleBlocks;
 import dev.doctor4t.ratatouille.index.RatatouilleItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.block.Block;
-import net.minecraft.entity.EntityType;
-import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class RatatouilleLangGen extends FabricLanguageProvider {

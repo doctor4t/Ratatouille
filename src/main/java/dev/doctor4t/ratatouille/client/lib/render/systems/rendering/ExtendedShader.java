@@ -14,7 +14,7 @@
 //import java.io.IOException;
 //import java.util.Arrays;
 //
-///*
+/// *
 //    Original class based on the Quilt port (arathain) of the Lodestone library (Sammy; and Lodestar)
 // */
 //public class ExtendedShader extends ShaderProgram {

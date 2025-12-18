@@ -31,13 +31,13 @@ public class AmbienceUtil implements
     private static final HashMap<BlockEntityType<? extends BlockEntity>, BlockEntityAmbience> BLOCK_ENTITY_AMBIENCES = new HashMap<>();
     private static final List<MovingSoundInstance> BLOCK_ENTITY_AMBIENCE_QUEUE = new ArrayList<>();
 
-	public static void registerBackgroundAmbience(BackgroundAmbience backgroundAmbience) {
-		BACKGROUND_AMBIENCES.add(backgroundAmbience);
-	}
+    public static void registerBackgroundAmbience(BackgroundAmbience backgroundAmbience) {
+        BACKGROUND_AMBIENCES.add(backgroundAmbience);
+    }
 
-	public static void registerBlockEntityAmbience(BlockEntityType<? extends BlockEntity> blockEntityType, BlockEntityAmbience blockEntityAmbience) {
+    public static void registerBlockEntityAmbience(BlockEntityType<? extends BlockEntity> blockEntityType, BlockEntityAmbience blockEntityAmbience) {
         BLOCK_ENTITY_AMBIENCES.put(blockEntityType, blockEntityAmbience);
-	}
+    }
 
     public void registerEvents() {
         ClientBlockEntityEvents.BLOCK_ENTITY_LOAD.register(this);

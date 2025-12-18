@@ -26,7 +26,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
     @Shadow
     public abstract void playSound(SoundEvent sound, float volume, float pitch);
 
-    @Shadow public abstract float getAttackCooldownProgress(float baseTime);
+    @Shadow
+    public abstract float getAttackCooldownProgress(float baseTime);
 
     @ModifyReturnValue(method = "getDisplayName", at = @At("RETURN"))
     public Text ratatouille$styliseSupporterNames(Text original) {

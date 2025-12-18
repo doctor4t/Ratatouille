@@ -46,10 +46,14 @@ public class MasterCustomBipedArmorFeatureRenderer<T extends LivingEntity, M ext
             VertexConsumer leggingsBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayLeggingsGlint(entity));
             VertexConsumer bootsBuffer = ItemRenderer.getItemGlintConsumer(vertexConsumers, translucentRenderLayer, false, customArmorSetConditions.shouldDisplayBootsGlint(entity));
 
-            if (customArmorSetConditions.shouldDisplayHelmet(entity)) customArmorModel.renderHelmet(matrices, helmetBuffer, light, OverlayTexture.DEFAULT_UV);
-            if (customArmorSetConditions.shouldDisplayChestplate(entity)) customArmorModel.renderChestplate(matrices, chestplateBuffer, light, OverlayTexture.DEFAULT_UV);
-            if (customArmorSetConditions.shouldDisplayLeggings(entity)) customArmorModel.renderLeggings(matrices, leggingsBuffer, light, OverlayTexture.DEFAULT_UV);
-            if (customArmorSetConditions.shouldDisplayBoots(entity)) customArmorModel.renderBoots(matrices, bootsBuffer, light, OverlayTexture.DEFAULT_UV);
+            if (customArmorSetConditions.shouldDisplayHelmet(entity))
+                customArmorModel.renderHelmet(matrices, helmetBuffer, light, OverlayTexture.DEFAULT_UV);
+            if (customArmorSetConditions.shouldDisplayChestplate(entity))
+                customArmorModel.renderChestplate(matrices, chestplateBuffer, light, OverlayTexture.DEFAULT_UV);
+            if (customArmorSetConditions.shouldDisplayLeggings(entity))
+                customArmorModel.renderLeggings(matrices, leggingsBuffer, light, OverlayTexture.DEFAULT_UV);
+            if (customArmorSetConditions.shouldDisplayBoots(entity))
+                customArmorModel.renderBoots(matrices, bootsBuffer, light, OverlayTexture.DEFAULT_UV);
 
 
         }
