@@ -24,7 +24,7 @@ import java.util.List;
 @Mixin(LivingEntityRenderer.class)
 public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extends EntityModel<T>> extends EntityRenderer<T> implements FeatureRendererContext<T, M> {
     @Unique
-    List<FeatureRenderer<T, M>> firstPersonArmFeatures = new ArrayList<>();
+    protected List<FeatureRenderer<T, M>> firstPersonArmFeatures = new ArrayList<>();
 
     protected LivingEntityRendererMixin(EntityRendererFactory.Context ctx) {
         super(ctx);
